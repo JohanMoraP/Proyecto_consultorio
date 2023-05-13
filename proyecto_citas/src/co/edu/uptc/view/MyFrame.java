@@ -7,6 +7,7 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 public class MyFrame extends JFrame {
+	private AppointmentPanel appointmentPanel;
 
 	public MyFrame() {
 
@@ -24,6 +25,6 @@ public class MyFrame extends JFrame {
 	}
 
 	public void initComponents() {
-
+		appointmentPanel = new AppointmentPanel();
 	}
 }
