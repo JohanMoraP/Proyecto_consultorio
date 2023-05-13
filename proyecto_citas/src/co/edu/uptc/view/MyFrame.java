@@ -1,6 +1,5 @@
 package co.edu.uptc.view;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
