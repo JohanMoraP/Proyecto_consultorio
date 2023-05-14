@@ -26,5 +26,10 @@ public class MyFrame extends JFrame {
 
 	public void initComponents() {
 		appointmentPanel = new AppointmentPanel();
+		add(appointmentPanel);
+	}
+
+	public static void main(String[] args) {
+		new MyFrame();
 	}
 }
