@@ -1,18 +1,27 @@
 package co.edu.uptc.model;
 
 import java.time.LocalTime;
+import java.util.Date;
 
 public class Appointment {
 
     private Doctor doctor;
     private Patient patient;
+    private Date dateAppoint;
     private LocalTime hour;
 
-    public Appointment(Patient patient) {
-        this.patient = patient;
+    public Appointment() {
     }
 
-    public Doctor getDoctor() {
+    public Date getDateAppoint() {
+		return dateAppoint;
+	}
+
+	public void setDateAppoint(Date dateAppoint) {
+		this.dateAppoint = dateAppoint;
+	}
+
+	public Doctor getDoctor() {
         return doctor;
     }
 

@@ -8,6 +8,15 @@ public class Doctor extends Person {
 
 	}
 
+	public Doctor(String name, String lastName, int age, String phone,String identification,String speciality) {
+		this.setName(name);
+		this.setLastName(lastName);
+		this.setAge(age);
+		this.setPhone(phone);
+		this.setIdentification(identification);
+		this.speciality=speciality;
+	}
+
 	public void setSpeciality(String speciality) {
 		this.speciality = speciality;
 	}
