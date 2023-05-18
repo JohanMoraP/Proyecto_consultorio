@@ -3,7 +3,6 @@ package co.edu.uptc.presenter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-
 import co.edu.uptc.view.MyFrame;
 
 public class App implements ActionListener {
@@ -14,36 +13,46 @@ public class App implements ActionListener {
     }
 
     @Override
-	public void actionPerformed(ActionEvent event) {
-		
-		try {
-			String source = event.getActionCommand();
+    public void actionPerformed(ActionEvent event) {
 
-			switch (source) {
-			case "citas": 
-				
-				break;
-				
-			case "usuario": 
+        String source = event.getActionCommand();
 
-				break;
+        switch (source) {
+            case "createDoctor":
 
-			case"doctor":
-				
-				break;
-			case "asignar":
+                break;
 
-				break;
+            case "searchDoctor":
 
-			case "ingles":
+                break;
+            case "citas":
 
-				break;
+                break;
 
-			}}
-		
-		catch (IOException e) {
-			e.printStackTrace();
-		}
+            case "usuario":
+
+                break;
+
+            case "doctor":
+
+                break;
+            case "asignar":
+
+                break;
+
+            case "Buscar":
+
+                break;
+            case "cancelar":
+
+                break;
+            case "guardar":
+
+                break;
+
+        }
+
+    }
 
     public static void main(String[] args) throws IOException {
         new App();
