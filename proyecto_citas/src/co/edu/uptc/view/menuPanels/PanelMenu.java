@@ -55,6 +55,7 @@ public class PanelMenu extends JPanel {
         btnAppoint.setBorderPainted(false);
         btnAppoint.setContentAreaFilled(false);
         btnAppoint.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnAppoint.setActionCommand("citas");
         add(btnAppoint);
 
         btnDoctor = new JButton();
@@ -66,6 +67,7 @@ public class PanelMenu extends JPanel {
         btnDoctor.setBorderPainted(false);
         btnDoctor.setContentAreaFilled(false);
         btnDoctor.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnDoctor.setActionCommand("doctor");
         add(btnDoctor);
 
         btnUsers = new JButton();
@@ -77,6 +79,7 @@ public class PanelMenu extends JPanel {
         btnUsers.setBorderPainted(false);
         btnUsers.setContentAreaFilled(false);
         btnUsers.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnUsers.setActionCommand("usuario");
         add(btnUsers);
     }
 

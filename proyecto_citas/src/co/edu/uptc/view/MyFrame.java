@@ -4,10 +4,11 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
+import co.edu.uptc.view.AppointmentPanels.AppointmentPanel;
 import co.edu.uptc.view.DoctorPanels.DoctorPanel;
 import co.edu.uptc.view.DoctorPanels.MenuDoctorPanel;
 import co.edu.uptc.view.DoctorPanels.SearchDoctorPanel;
@@ -26,7 +27,7 @@ public class MyFrame extends JFrame {
 	private MenuUserPanel menuUserPanel;
 	private SchedulePanel horario;
 
-	public MyFrame() {
+	public MyFrame(ActionListener listener) {
 
 		super("Consultorio");
 		Image icon = Toolkit.getDefaultToolkit().getImage("image/icono_Consultorio.png");
@@ -36,13 +37,13 @@ public class MyFrame extends JFrame {
 		this.setExtendedState(MAXIMIZED_BOTH);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout(30, 30));
-		initComponents();
+		initComponents(listener);
 		this.setVisible(true);
 		this.revalidate();
 		this.pack();
 	}
 
-	public void initComponents() {
+	public void initComponents(ActionListener listener) {
 		/*
 		 * appointmentPanel = new AppointmentPanel();
 		 * add(appointmentPanel);
@@ -77,7 +78,4 @@ public class MyFrame extends JFrame {
 		add(horario, BorderLayout.CENTER);
 	}
 
-	public static void main(String[] args) {
-		new MyFrame();
-	}
 }

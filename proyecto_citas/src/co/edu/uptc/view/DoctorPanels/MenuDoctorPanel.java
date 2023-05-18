@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -37,6 +36,7 @@ public class MenuDoctorPanel extends JPanel {
         btnCreateDoctor.setBorderPainted(false);
         btnCreateDoctor.setContentAreaFilled(false);
         btnCreateDoctor.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnCreateDoctor.setActionCommand("create doctor");
         panelButtons.add(btnCreateDoctor);
 
         btnSearchDoctor = new JButton();
@@ -46,6 +46,7 @@ public class MenuDoctorPanel extends JPanel {
         btnSearchDoctor.setBorderPainted(false);
         btnSearchDoctor.setContentAreaFilled(false);
         btnSearchDoctor.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnSearchDoctor.setActionCommand("search doctor");
         panelButtons.add(btnSearchDoctor);
 
         add(panelButtons, BorderLayout.CENTER);

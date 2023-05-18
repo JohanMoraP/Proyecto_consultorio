@@ -6,6 +6,10 @@ import javax.swing.table.DefaultTableModel;
 import com.toedter.calendar.JCalendar;
 
 import java.awt.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class ScheduleTable extends JPanel {
     private JCalendar calendar;
@@ -24,6 +28,18 @@ public class ScheduleTable extends JPanel {
         calendar.setDecorationBackgroundColor(new Color(41, 99, 99, 71));
         calendar.setBorder(BorderFactory.createEmptyBorder(10, 10, 15, 15));
         add(calendar);
+        calendar.addPropertyChangeListener("calendar", new PropertyChangeListener() {
+
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                if (evt.getPropertyName().equals("calendar")) {
+
+                    Calendar cal = (GregorianCalendar) evt.getNewValue();
+                    System.out.println(cal.getTime());
+                }
+
+            }
+        });
 
         tableModel = new ScheduleTableModel();
         model = new DefaultTableModel(tableModel.getScheduleData(), tableModel.getHeaderTable());

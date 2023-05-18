@@ -19,9 +19,11 @@ public class AppointmentButtons extends JPanel {
     private void initComponents() {
 
         cancel = new GreenButton("Cancelar");
+        cancel.setActionCommand("cancelar");
         add(cancel);
 
         save = new GreenButton("Guardar");
+        save.setActionCommand("guardar");
         add(save);
 
     }

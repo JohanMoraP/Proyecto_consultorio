@@ -1,4 +1,4 @@
-package co.edu.uptc.view;
+package co.edu.uptc.view.AppointmentPanels;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -7,8 +7,8 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
-import co.edu.uptc.view.AppointmentPanels.AppointmentButtons;
-import co.edu.uptc.view.AppointmentPanels.PanelCitaData;
+import co.edu.uptc.view.SearchBarId;
+import co.edu.uptc.view.TittlePanel;
 
 public class AppointmentPanel extends JPanel {
 

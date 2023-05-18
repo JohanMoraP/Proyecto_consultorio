@@ -1,7 +1,6 @@
 package co.edu.uptc.view.DoctorPanels;
 
 import java.awt.Color;
-import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;

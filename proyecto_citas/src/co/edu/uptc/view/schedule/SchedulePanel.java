@@ -1,7 +1,6 @@
 package co.edu.uptc.view.schedule;
 
 import java.awt.BorderLayout;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import co.edu.uptc.view.GreenButton;
@@ -27,6 +26,7 @@ public class SchedulePanel extends JPanel {
 
         asign = new GreenButton("Asignar");
         asign.setBounds(5, 10, 10, 5);
+        asign.setActionCommand("asignar");
         add(asign, BorderLayout.SOUTH);
     }
 }
