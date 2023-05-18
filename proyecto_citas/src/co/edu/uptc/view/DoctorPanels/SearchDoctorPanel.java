@@ -4,12 +4,10 @@ import java.awt.Dimension;
 
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.TitlePaneLayout;
-
+import co.edu.uptc.view.SearchBarId;
 import co.edu.uptc.view.TittlePanel;
-import co.edu.uptc.view.AppointmentPanels.SearchBarId;
 
-public class SearchDoctorPanel  extends JPanel{
+public class SearchDoctorPanel extends JPanel {
 
     SearchBarId searchBarId;
     TittlePanel header;
@@ -26,8 +24,8 @@ public class SearchDoctorPanel  extends JPanel{
         header.setPreferredSize(new Dimension(getWidth(), 100));
         add(header);
 
-        searchBarId= new SearchBarId();
+        searchBarId = new SearchBarId();
         add(searchBarId);
     }
-    
+
 }

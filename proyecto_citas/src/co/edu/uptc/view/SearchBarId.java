@@ -1,4 +1,4 @@
-package co.edu.uptc.view.AppointmentPanels;
+package co.edu.uptc.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -6,8 +6,6 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-import co.edu.uptc.view.GreenButton;
 
 public class SearchBarId extends JPanel {
     private JLabel searchLabel;

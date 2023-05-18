@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 
 import co.edu.uptc.view.AppointmentPanels.AppointmentButtons;
 import co.edu.uptc.view.AppointmentPanels.PanelCitaData;
-import co.edu.uptc.view.AppointmentPanels.SearchBarId;
 
 public class AppointmentPanel extends JPanel {
 
