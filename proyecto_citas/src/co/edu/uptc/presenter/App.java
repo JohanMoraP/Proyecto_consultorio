@@ -9,6 +9,7 @@ import co.edu.uptc.view.MyFrame;
 import co.edu.uptc.view.PanelBase;
 import co.edu.uptc.view.AppointmentPanels.AppointmentPanel;
 import co.edu.uptc.view.DoctorPanels.DoctorPanel;
+import co.edu.uptc.view.schedule.SchedulePanel;
 
 public class App implements ActionListener {
     private MyFrame frame;
@@ -34,8 +35,8 @@ public class App implements ActionListener {
                 break;
             case "citas":
                 frame.getBase().removeAll();
-                AppointmentPanel appointment = new AppointmentPanel();
-                frame.getBase().add(appointment);
+                SchedulePanel schedule = new SchedulePanel(this);
+                frame.getBase().add(schedule);
                 frame.revalidate();
                 frame.repaint();
                 break;
@@ -48,7 +49,11 @@ public class App implements ActionListener {
 
                 break;
             case "asignar":
-
+                frame.getBase().removeAll();
+                AppointmentPanel appointment = new AppointmentPanel();
+                frame.getBase().add(appointment);
+                frame.revalidate();
+                frame.repaint();
                 break;
 
             case "Buscar":

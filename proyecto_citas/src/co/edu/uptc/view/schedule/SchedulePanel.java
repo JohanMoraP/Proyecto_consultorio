@@ -1,6 +1,8 @@
 package co.edu.uptc.view.schedule;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+
 import javax.swing.JPanel;
 
 import co.edu.uptc.view.GreenButton;
@@ -11,11 +13,11 @@ public class SchedulePanel extends JPanel {
     private TittlePanel tittle;
     private GreenButton asign;
 
-    public SchedulePanel() {
-        initComponents();
+    public SchedulePanel(ActionListener listener) {
+        initComponents(listener);
     }
 
-    private void initComponents() {
+    private void initComponents(ActionListener listener) {
         this.setLayout(new BorderLayout());
         tittle = new TittlePanel();
         tittle.getTittle().setText("HORARIO DE CITAS");
@@ -27,6 +29,7 @@ public class SchedulePanel extends JPanel {
         asign = new GreenButton("Asignar");
         asign.setBounds(5, 10, 10, 5);
         asign.setActionCommand("asignar");
+        asign.addActionListener(listener);
         add(asign, BorderLayout.SOUTH);
     }
 }

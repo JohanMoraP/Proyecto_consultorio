@@ -16,6 +16,7 @@ public class ScheduleTable extends JPanel {
     private ScheduleTableModel tableModel;
     private DefaultTableModel model;
     private JTable table;
+    private JComboBox<String> doctors;
 
     public ScheduleTable() {
         initComponents();
@@ -29,7 +30,6 @@ public class ScheduleTable extends JPanel {
         calendar.setBorder(BorderFactory.createEmptyBorder(10, 10, 15, 15));
         add(calendar);
         calendar.addPropertyChangeListener("calendar", new PropertyChangeListener() {
-
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
                 if (evt.getPropertyName().equals("calendar")) {
@@ -37,10 +37,12 @@ public class ScheduleTable extends JPanel {
                     Calendar cal = (GregorianCalendar) evt.getNewValue();
                     System.out.println(cal.getTime());
                 }
-
             }
         });
 
+        doctors = new JComboBox<String>();
+        doctors.setPreferredSize(new Dimension(130, 25));
+        add(doctors);
         tableModel = new ScheduleTableModel();
         model = new DefaultTableModel(tableModel.getScheduleData(), tableModel.getHeaderTable());
         table = new JTable();
