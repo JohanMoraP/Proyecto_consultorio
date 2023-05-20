@@ -3,6 +3,9 @@ package co.edu.uptc.view.menuPanels;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,29 +19,37 @@ public class PanelMenu extends JPanel {
     private JButton btnUsers;
     private JLabel labelSystem;
     private JLabel labelMenu;
-    private JLabel labelImage;
+    private JButton btnHome;
 
-    public PanelMenu() {
+    public PanelMenu(ActionListener listener) {
         setPreferredSize(new Dimension(200, 600));
         setBackground(new Color(41, 99, 99));
-        initComponents();
+        initComponents(listener);
+        setBorder(BorderFactory.createEmptyBorder(10, 10, 15, 15));
 
     }
 
-    private void initComponents() {
+    private void initComponents(ActionListener listener) {
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        labelImage = new JLabel();
+        btnHome = new JButton();
         ImageIcon imageMenu = new ImageIcon(
                 ((new ImageIcon("images/cita.png")).getImage()).getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH));
-        labelImage.setIcon(imageMenu);
-        labelImage.setAlignmentX(Component.CENTER_ALIGNMENT);
-        add(labelImage);
+        btnHome.setIcon(imageMenu);
+        btnHome.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnHome.setBorder(BorderFactory.createEmptyBorder(10, 10, 15, 15));
+        btnHome.setBackground(null);
+        btnHome.setBorderPainted(false);
+        btnHome.setContentAreaFilled(false);
+        btnHome.addActionListener(listener);
+        btnHome.setActionCommand("home");
+        add(btnHome);
 
         labelSystem = new JLabel("NOMBRE DEL SISTEMA");
         labelSystem.setForeground(Color.white);
         labelSystem.setAlignmentX(Component.CENTER_ALIGNMENT);
+        labelSystem.setBorder(BorderFactory.createEmptyBorder(10, 10, 15, 15));
         add(labelSystem);
 
         labelMenu = new JLabel("MENU");
@@ -55,6 +66,7 @@ public class PanelMenu extends JPanel {
         btnAppoint.setBorderPainted(false);
         btnAppoint.setContentAreaFilled(false);
         btnAppoint.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnAppoint.addActionListener(listener);
         btnAppoint.setActionCommand("citas");
         add(btnAppoint);
 
@@ -67,6 +79,7 @@ public class PanelMenu extends JPanel {
         btnDoctor.setBorderPainted(false);
         btnDoctor.setContentAreaFilled(false);
         btnDoctor.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnDoctor.addActionListener(listener);
         btnDoctor.setActionCommand("doctor");
         add(btnDoctor);
 
@@ -79,16 +92,9 @@ public class PanelMenu extends JPanel {
         btnUsers.setBorderPainted(false);
         btnUsers.setContentAreaFilled(false);
         btnUsers.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnUsers.addActionListener(listener);
         btnUsers.setActionCommand("usuario");
         add(btnUsers);
     }
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame();
-        PanelMenu menu = new PanelMenu();
-        frame.add(menu);
-        frame.setSize(400, 400);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-    }
 }

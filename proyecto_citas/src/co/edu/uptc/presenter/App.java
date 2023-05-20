@@ -3,7 +3,12 @@ package co.edu.uptc.presenter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+
+import co.edu.uptc.view.Home;
 import co.edu.uptc.view.MyFrame;
+import co.edu.uptc.view.PanelBase;
+import co.edu.uptc.view.AppointmentPanels.AppointmentPanel;
+import co.edu.uptc.view.DoctorPanels.DoctorPanel;
 
 public class App implements ActionListener {
     private MyFrame frame;
@@ -19,14 +24,20 @@ public class App implements ActionListener {
 
         switch (source) {
             case "createDoctor":
-
+                frame.getBase().removeAll();
+                DoctorPanel doctor = new DoctorPanel();
+                frame.getBase().add(doctor);
                 break;
 
             case "searchDoctor":
 
                 break;
             case "citas":
-
+                frame.getBase().removeAll();
+                AppointmentPanel appointment = new AppointmentPanel();
+                frame.getBase().add(appointment);
+                frame.revalidate();
+                frame.repaint();
                 break;
 
             case "usuario":
@@ -50,8 +61,15 @@ public class App implements ActionListener {
 
                 break;
 
-        }
+            case "home":
+                frame.getBase().removeAll();
+                Home home = new Home();
+                frame.getBase().add(home);
+                frame.revalidate();
+                frame.repaint();
+                break;
 
+        }
     }
 
     public static void main(String[] args) throws IOException {
