@@ -3,10 +3,11 @@ package co.edu.uptc.view.UserPanels;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
 import co.edu.uptc.view.TittlePanel;
 
 public class MenuUserPanel extends JPanel {
@@ -15,11 +16,11 @@ public class MenuUserPanel extends JPanel {
     JButton btnCreateUser;
     TittlePanel header;
 
-    public MenuUserPanel() {
-        initComponents();
+    public MenuUserPanel(ActionListener listener) {
+        initComponents(listener);
     }
 
-    private void initComponents() {
+    private void initComponents(ActionListener listener) {
         setLayout(new BorderLayout(30, 30));
         header = new TittlePanel();
         header.getTittle().setText("MODULO USUARIOS");
@@ -34,6 +35,8 @@ public class MenuUserPanel extends JPanel {
         btnCreateUser.setBorderPainted(false);
         btnCreateUser.setContentAreaFilled(false);
         btnCreateUser.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnCreateUser.setActionCommand("createUser");
+        btnCreateUser.addActionListener(listener);
         panelButtons.add(btnCreateUser);
 
         btnSearchUser = new JButton();
@@ -42,6 +45,8 @@ public class MenuUserPanel extends JPanel {
         btnSearchUser.setBorderPainted(false);
         btnSearchUser.setContentAreaFilled(false);
         btnSearchUser.setAlignmentX(Component.CENTER_ALIGNMENT);
+        btnSearchUser.setActionCommand("searchUser");
+        btnSearchUser.addActionListener(listener);
         panelButtons.add(btnSearchUser);
 
         add(panelButtons, BorderLayout.CENTER

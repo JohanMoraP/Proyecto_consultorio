@@ -11,9 +11,15 @@
   "telefono" : "234324324",
   "identificacion" : "1035456492"
 }, {
-  "nombre" : "Hermelinda",
-  "apellido" : "Jimenez",
+  "nombre" : "JUAN",
+  "apellido" : "castiblanco",
+  "edad" : 123,
+  "telefono" : "324234",
+  "identificacion" : "23432423"
+}, {
+  "nombre" : "HERMELINDA",
+  "apellido" : "JIMENEZ",
   "edad" : 23,
-  "telefono" : "234324324",
-  "identificacion" : "1056804321"
+  "telefono" : "243224",
+  "identificacion" : "32424"
 } ]

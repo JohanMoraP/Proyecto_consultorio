@@ -2,6 +2,7 @@ package co.edu.uptc.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -12,13 +13,13 @@ public class SearchBarId extends JPanel {
     private JTextField textField;
     private GreenButton search;
 
-    public SearchBarId() {
+    public SearchBarId(ActionListener listener, String namePanel) {
         setBackground(Color.WHITE);
-        this.setSize(new Dimension(getWidth(), (int) (getHeight() * 0.2)));
-        initComponents();
+        this.setPreferredSize(new Dimension(getWidth(), 20));
+        initComponents(listener,namePanel);
     }
 
-    private void initComponents() {
+    private void initComponents(ActionListener listener, String namePanel) {
         searchLabel = new JLabel("Buscar Por identificación");
         add(searchLabel);
 
@@ -26,8 +27,18 @@ public class SearchBarId extends JPanel {
         add(textField);
 
         search = new GreenButton("Buscar");
+        search.setActionCommand("buscarId"+namePanel);
+        search.addActionListener(listener);
         add(search);
 
+    }
+
+    public String getTextIdUser() {
+        return textField.getText();
+    }
+
+    public void setTextField(JTextField textField) {
+        this.textField = textField;
     }
 
 }

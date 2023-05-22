@@ -25,21 +25,13 @@ public class JsonFileManager {
 	private ArrayList<Doctor> listDoctorsJson;
 	private ArrayList<Appointment> listAppointmentJson;
 	
-	public static void main(String[] args) {
-		JsonFileManager jsonFileManager= new JsonFileManager();
-	}
-
 	public JsonFileManager() {
 		// TODO Auto-generated constructor stub
 		listPatientsJson= new ArrayList<>();
 		listDoctorsJson= new ArrayList<>();
 		listAppointmentJson= new ArrayList<>();
 		readDataUsers();
-		listPatientsJson.add(new Patient("Hermelinda", "Jimenez",23,"234324324","1056804321"));
-		writePatient(listPatientsJson);
 		readDataDoctors();
-		listDoctorsJson.add(new Doctor("Dario", "sanchez",23,"234324324","1056804321","medico"));
-		writeDoctor(listDoctorsJson);
 	}
  
 	private void readDataUsers() {

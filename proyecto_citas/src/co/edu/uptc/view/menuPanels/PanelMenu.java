@@ -2,14 +2,12 @@ package co.edu.uptc.view.menuPanels;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -22,7 +20,7 @@ public class PanelMenu extends JPanel {
     private JButton btnHome;
 
     public PanelMenu(ActionListener listener) {
-        setPreferredSize(new Dimension(200, 600));
+       // setPreferredSize(new Dimension(250, 600));
         setBackground(new Color(41, 99, 99));
         initComponents(listener);
         setBorder(BorderFactory.createEmptyBorder(10, 10, 15, 15));
@@ -39,7 +37,7 @@ public class PanelMenu extends JPanel {
         btnHome.setIcon(imageMenu);
         btnHome.setAlignmentX(Component.CENTER_ALIGNMENT);
         btnHome.setBorder(BorderFactory.createEmptyBorder(10, 10, 15, 15));
-        btnHome.setBackground(null);
+        //btnHome.setBackground(null);
         btnHome.setBorderPainted(false);
         btnHome.setContentAreaFilled(false);
         btnHome.addActionListener(listener);
@@ -57,9 +55,10 @@ public class PanelMenu extends JPanel {
         labelMenu.setAlignmentX(Component.CENTER_ALIGNMENT);
         add(labelMenu);
 
+
         btnAppoint = new JButton();
-        ImageIcon imageApp = new ImageIcon(
-                ((new ImageIcon("images/cita.png")).getImage()).getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH));
+        ImageIcon imageApp = new ImageIcon(((new ImageIcon("images/cita.png")).getImage()).getScaledInstance(50,
+        50, java.awt.Image.SCALE_SMOOTH));
         btnAppoint.setIcon(imageApp);
         btnAppoint.setText("CITAS");
         btnAppoint.setForeground(Color.white);

@@ -71,53 +71,62 @@ public class PanelDoctorData extends JPanel {
 
     }
 
-    public JTextField getNameText() {
-        return nameText;
+    public String getNameText() {
+        return nameText.getText();
     }
 
-    public void setNameText(JTextField nameText) {
-        this.nameText = nameText;
+    public void setNameText(String nameText) {
+        this.nameText.setText(nameText);
     }
 
-    public JTextField getLastNameText() {
-        return lastNameText;
+    public String getLastNameText() {
+        return lastNameText.getText();
     }
 
-    public void setLastNameText(JTextField lastNameText) {
-        this.lastNameText = lastNameText;
+    public void setLastNameText(String lastNameText) {
+        this.lastNameText.setText(lastNameText);
     }
 
-    public JTextField getAgeText() {
-        return ageText;
+    public String getAgeText() {
+        return ageText.getText();
     }
 
-    public void setAgeText(JTextField ageText) {
-        this.ageText = ageText;
+    public void setAgeText(String ageText) {
+        this.ageText.setText(ageText);
     }
 
 
-    public JTextField getNumberPhoneText() {
-        return numberPhoneText;
+    public String getNumberPhoneText() {
+        return numberPhoneText.getText();
     }
 
-    public void setNumberPhoneText(JTextField numberPhoneText) {
-        this.numberPhoneText = numberPhoneText;
+    public void setNumberPhoneText(String numberPhoneText) {
+        this.numberPhoneText.setText(numberPhoneText);
     }
 
-    public JTextField getidDoctorText() {
-        return idDoctorText;
+    public String getidDoctorText() {
+        return idDoctorText.getText();
     }
 
-    public void setDoctorText(JTextField doctorText) {
-        this.idDoctorText = doctorText;
+    public void setDoctorText(String doctorText) {
+        this.idDoctorText.setText(doctorText);
     }
 
-    public JTextField getSpecialityText() {
-        return specialityText;
+    public String getSpecialityText() {
+        return specialityText.getText();
     }
 
-    public void setSpecialityText(JTextField specialityText) {
-        this.specialityText = specialityText;
+    public void setSpecialityText(String specialityText) {
+        this.specialityText.setText(specialityText);
+    }
+
+    public void enableText() {
+        this.nameText.setEditable(false);
+        this.lastNameText.setEditable(false);
+        this.ageText.setEditable(false);
+        this.numberPhoneText.setEditable(false);
+        this.idDoctorText.setEditable(false);
+        this.specialityText.setEditable(false);
     }
 
 }

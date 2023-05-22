@@ -1,6 +1,7 @@
 package co.edu.uptc.view.AppointmentPanels;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
@@ -11,19 +12,21 @@ public class AppointmentButtons extends JPanel {
     private GreenButton cancel;
     private GreenButton save;
 
-    public AppointmentButtons() {
+    public AppointmentButtons(ActionListener listener, String namePanel) {
         setBackground(Color.WHITE);
-        initComponents();
+        initComponents(listener, namePanel);
     }
 
-    private void initComponents() {
+    private void initComponents(ActionListener listener, String namePanel) {
 
         cancel = new GreenButton("Cancelar");
-        cancel.setActionCommand("cancelar");
+        cancel.setActionCommand("cancelar"+namePanel);
+        cancel.addActionListener(listener);
         add(cancel);
 
         save = new GreenButton("Guardar");
-        save.setActionCommand("guardar");
+        save.setActionCommand("guardar"+namePanel);
+        save.addActionListener(listener);
         add(save);
 
     }

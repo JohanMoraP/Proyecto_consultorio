@@ -20,7 +20,7 @@ public class MyFrame extends JFrame {
 		this.setExtendedState(MAXIMIZED_BOTH);
 		Image icon = Toolkit.getDefaultToolkit().getImage("images/icono_Consultorio.png");
 		setIconImage(icon);
-		this.setSize(1000, 500);
+		this.setPreferredSize(new Dimension(1000, 600));
 		this.setMinimumSize(new Dimension(400, 400));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		initComponents(listener);

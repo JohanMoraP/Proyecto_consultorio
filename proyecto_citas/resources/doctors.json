@@ -6,10 +6,24 @@
   "identificacion" : "1035456492",
   "especialidad" : "odontologia"
 }, {
-  "nombre" : "Dario",
+  "nombre" : "dario",
   "apellido" : "sanchez",
-  "edad" : 23,
-  "telefono" : "234324324",
-  "identificacion" : "1056804321",
-  "especialidad" : "medico"
+  "edad" : 132,
+  "telefono" : "32131",
+  "identificacion" : "23124",
+  "especialidad" : "general"
+}, {
+  "nombre" : "ANDREA",
+  "apellido" : "SANCHEZ",
+  "edad" : 23432,
+  "telefono" : "34324",
+  "identificacion" : "23432",
+  "especialidad" : "MEDICO"
+}, {
+  "nombre" : "yyyyy",
+  "apellido" : "yyyyyyy",
+  "edad" : 1223,
+  "telefono" : "223331",
+  "identificacion" : "324W432423",
+  "especialidad" : "MEDICO"
 } ]
