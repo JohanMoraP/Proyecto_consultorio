@@ -11,9 +11,9 @@ import co.edu.uptc.view.TittlePanel;
 
 public class SearchDoctorPanel extends JPanel {
 
-    SearchBarId searchBarId;
-    TittlePanel header;
-    PanelDoctorData panelDoctorData;
+    private SearchBarId searchBarId;
+    private TittlePanel header;
+    private PanelDoctorData panelDoctorData;
 
     public SearchDoctorPanel(ActionListener listener) {
         setPreferredSize(new Dimension(400, 1000));
@@ -27,25 +27,23 @@ public class SearchDoctorPanel extends JPanel {
         header.setPreferredSize(new Dimension(getWidth(), 100));
         add(header);
 
-        searchBarId = new SearchBarId(listener,"Doctor");
+        searchBarId = new SearchBarId(listener, "Doctor");
         add(searchBarId);
     }
 
-    public String idSearch(){
+    public String idSearch() {
         return searchBarId.getTextIdUser();
     }
 
     public void addData(String[] data) {
         panelDoctorData = new PanelDoctorData();
-        panelDoctorData.setNameText(data[0]);
-        panelDoctorData.setLastNameText(data[1]);
-        panelDoctorData.setAgeText(data[2]);
-        panelDoctorData.setNumberPhoneText(data[3]);
-        panelDoctorData.setDoctorText(data[4]);
-        panelDoctorData.setSpecialityText(data[5]);
+        panelDoctorData.getNameText().setText(data[0]);
+        panelDoctorData.getLastNameText().setText(data[1]);
+        panelDoctorData.getAgeText().setText(data[2]);
+        panelDoctorData.getNumberPhoneText().setText(data[3]);
+        panelDoctorData.getIdDoctorText().setText(data[4]);
         panelDoctorData.enableText();
         add(panelDoctorData);
-
     }
 
 }

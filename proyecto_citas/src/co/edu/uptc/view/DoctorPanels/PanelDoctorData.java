@@ -4,6 +4,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -19,11 +20,11 @@ public class PanelDoctorData extends JPanel {
     private JTextField lastNameText;
     private JTextField ageText;
     private JTextField numberPhoneText;
-    private JTextField specialityText;
+    private JComboBox<String> specialityText;
     private JTextField idDoctorText;
 
     public PanelDoctorData() {
-        setPreferredSize(new Dimension(600,85));
+        setPreferredSize(new Dimension(600, 85));
         initComponents();
 
     }
@@ -55,69 +56,19 @@ public class PanelDoctorData extends JPanel {
         numberPhoneText = new JTextField(12);
         add(numberPhoneText);
 
-        
         idDoctor = new JLabel("Identificaciòn");
         idDoctor.setAlignmentX(Component.RIGHT_ALIGNMENT);
         add(idDoctor);
         idDoctorText = new JTextField(12);
         add(idDoctorText);
 
-
         specialty = new JLabel("Especialidad");
         specialty.setAlignmentX(Component.RIGHT_ALIGNMENT);
         add(specialty);
-        specialityText = new JTextField(12);
+        specialityText = new JComboBox<String>();
+        specialityText.setPreferredSize(new Dimension(12, 5));
         add(specialityText);
 
-    }
-
-    public String getNameText() {
-        return nameText.getText();
-    }
-
-    public void setNameText(String nameText) {
-        this.nameText.setText(nameText);
-    }
-
-    public String getLastNameText() {
-        return lastNameText.getText();
-    }
-
-    public void setLastNameText(String lastNameText) {
-        this.lastNameText.setText(lastNameText);
-    }
-
-    public String getAgeText() {
-        return ageText.getText();
-    }
-
-    public void setAgeText(String ageText) {
-        this.ageText.setText(ageText);
-    }
-
-
-    public String getNumberPhoneText() {
-        return numberPhoneText.getText();
-    }
-
-    public void setNumberPhoneText(String numberPhoneText) {
-        this.numberPhoneText.setText(numberPhoneText);
-    }
-
-    public String getidDoctorText() {
-        return idDoctorText.getText();
-    }
-
-    public void setDoctorText(String doctorText) {
-        this.idDoctorText.setText(doctorText);
-    }
-
-    public String getSpecialityText() {
-        return specialityText.getText();
-    }
-
-    public void setSpecialityText(String specialityText) {
-        this.specialityText.setText(specialityText);
     }
 
     public void enableText() {
@@ -127,6 +78,54 @@ public class PanelDoctorData extends JPanel {
         this.numberPhoneText.setEditable(false);
         this.idDoctorText.setEditable(false);
         this.specialityText.setEditable(false);
+    }
+
+    public JTextField getNameText() {
+        return nameText;
+    }
+
+    public void setNameText(JTextField nameText) {
+        this.nameText = nameText;
+    }
+
+    public JTextField getLastNameText() {
+        return lastNameText;
+    }
+
+    public void setLastNameText(JTextField lastNameText) {
+        this.lastNameText = lastNameText;
+    }
+
+    public JTextField getAgeText() {
+        return ageText;
+    }
+
+    public void setAgeText(JTextField ageText) {
+        this.ageText = ageText;
+    }
+
+    public JTextField getNumberPhoneText() {
+        return numberPhoneText;
+    }
+
+    public void setNumberPhoneText(JTextField numberPhoneText) {
+        this.numberPhoneText = numberPhoneText;
+    }
+
+    public JComboBox<String> getSpecialityText() {
+        return specialityText;
+    }
+
+    public void setSpecialityText(JComboBox<String> specialityText) {
+        this.specialityText = specialityText;
+    }
+
+    public JTextField getIdDoctorText() {
+        return idDoctorText;
+    }
+
+    public void setIdDoctorText(JTextField idDoctorText) {
+        this.idDoctorText = idDoctorText;
     }
 
 }

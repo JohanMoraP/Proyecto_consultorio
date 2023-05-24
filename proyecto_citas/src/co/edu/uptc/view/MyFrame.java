@@ -17,16 +17,17 @@ public class MyFrame extends JFrame {
 
 	public MyFrame(ActionListener listener) {
 		super("Consultorio");
-		this.setExtendedState(MAXIMIZED_BOTH);
 		Image icon = Toolkit.getDefaultToolkit().getImage("images/icono_Consultorio.png");
 		setIconImage(icon);
-		this.setPreferredSize(new Dimension(1000, 600));
+		this.setSize(1000, 500);
 		this.setMinimumSize(new Dimension(400, 400));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		initComponents(listener);
 		this.revalidate();
 		this.pack();
 		this.setVisible(true);
+		this.setExtendedState(MAXIMIZED_BOTH);
+
 	}
 
 	public void initComponents(ActionListener listener) {

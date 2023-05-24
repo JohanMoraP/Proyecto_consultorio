@@ -3,7 +3,6 @@ package co.edu.uptc.view.UserPanels;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
@@ -17,7 +16,7 @@ public class SearchUserPanel extends JPanel {
     private PanelUserData panelUser;
 
     public SearchUserPanel(ActionListener listener) {
-        //setPreferredSize(new Dimension(400, 1000));
+        // setPreferredSize(new Dimension(400, 1000));
         initComponents(listener);
     }
 
@@ -28,11 +27,11 @@ public class SearchUserPanel extends JPanel {
         header.setPreferredSize(new Dimension(getWidth(), 30));
         add(header);
 
-        searchBarId = new SearchBarId(listener,"User");
+        searchBarId = new SearchBarId(listener, "User");
         add(searchBarId);
     }
 
-    public String idSearch(){
+    public String idSearch() {
         return searchBarId.getTextIdUser();
     }
 
