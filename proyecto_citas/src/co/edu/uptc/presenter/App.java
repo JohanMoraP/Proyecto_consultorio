@@ -2,6 +2,7 @@ package co.edu.uptc.presenter;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JOptionPane;
 
 import co.edu.uptc.model.ControlModel;
@@ -21,17 +22,17 @@ import co.edu.uptc.view.schedule.SchedulePanel;
 
 public class App implements ActionListener {
     private MyFrame frame;
-    JsonFileManager jsonFileManager = new JsonFileManager();
-    MenuDoctorPanel menuDoctorPanel;
-    MenuUserPanel menuUserPanel;
-    SchedulePanel schedule = new SchedulePanel(this);
-    AppointmentPanel appointment;
-    DoctorPanel doctor = new DoctorPanel(this);
-    SearchDoctorPanel searchDoctorPanel;
-    UserPanel user = new UserPanel(this);
-    SearchUserPanel searchUser;
-    Home home;
-    ControlModel controlModel = new ControlModel();
+    private JsonFileManager jsonFileManager = new JsonFileManager();
+    private MenuDoctorPanel menuDoctorPanel;
+    private MenuUserPanel menuUserPanel;
+    private SchedulePanel schedule;
+    private AppointmentPanel appointment;
+    private DoctorPanel doctor = new DoctorPanel(this);
+    private SearchDoctorPanel searchDoctorPanel;
+    private UserPanel user = new UserPanel(this);
+    private SearchUserPanel searchUser;
+    private Home home;
+    private ControlModel controlModel = new ControlModel();
 
     public App() {
         frame = new MyFrame(this);
@@ -46,7 +47,7 @@ public class App implements ActionListener {
 
             case "citas":
                 frame.getBase().removeAll();
-                schedule = new SchedulePanel(this);
+                schedule = new SchedulePanel(this, controlModel.getListDoctors());
                 frame.getBase().add(schedule);
                 frame.revalidate();
                 frame.repaint();
@@ -177,7 +178,7 @@ public class App implements ActionListener {
                 break;
 
             case "guardarCita":
-                System.out.println("GUARDAR CITA");
+                JOptionPane.showMessageDialog(frame, "GUARDAR CITA");
                 break;
 
             case "home":
@@ -189,5 +190,9 @@ public class App implements ActionListener {
                 break;
 
         }
+    }
+
+    public static void main(String[] args) {
+        new App();
     }
 }
