@@ -22,9 +22,12 @@ public class ControlModel {
 
     private void createSpecialityList() {
         specialityList= new ArrayList<>();
-        specialityList.add("MEDICO");
-        specialityList.add("ODONTOLOGIA");
-        specialityList.add("GENERAL");
+        specialityList.add("ODONTOLOGIA GENERAL");
+        specialityList.add("CIRUGIA ORAL Y MAXILOFACIAL");
+        specialityList.add("ENDODONCIA/ODONTOLOGIA ESTETICA");
+        specialityList.add("PERIODONCIA");
+        specialityList.add("ORTODONCIA");
+        specialityList.add("PATOLOGIA BUCAL");
     }
 
     private void createListHourAppontments() {

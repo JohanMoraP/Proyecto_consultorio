@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 import co.edu.uptc.model.Doctor;
-import co.edu.uptc.presenter.App;
 import co.edu.uptc.view.GreenButton;
 import co.edu.uptc.view.TittlePanel;
 

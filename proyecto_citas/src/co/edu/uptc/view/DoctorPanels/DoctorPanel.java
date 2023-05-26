@@ -36,21 +36,21 @@ public class DoctorPanel extends JPanel {
         add(buttons);
     }
 
-
-    public String[] sendDataFormDoctor(){
-        String[] data ={panelDoctor.getNameText(), panelDoctor.getLastNameText(),
-             panelDoctor.getAgeText(), panelDoctor.getNumberPhoneText(),
-             panelDoctor.getidDoctorText(), panelDoctor.getSpecialityText()};
+    public String[] sendDataFormDoctor() {
+        String[] data = { panelDoctor.getNameText().getText(), panelDoctor.getLastNameText().getText(),
+                panelDoctor.getAgeText().getText(), panelDoctor.getNumberPhoneText().getText(),
+                panelDoctor.getIdDoctorText().getText(), panelDoctor.getSpecialityText().getSelectedItem().toString() };
         return data;
     }
 
     public void cleanForm() {
-        panelDoctor.setNameText("");
-        panelDoctor.setLastNameText("");
-        panelDoctor.setAgeText("");
-        panelDoctor.setNumberPhoneText("");
-        panelDoctor.setDoctorText("");
-        panelDoctor.setSpecialityText("");
+        panelDoctor.getNameText().setText("");
+        panelDoctor.getLastNameText().setText("");
+        panelDoctor.getAgeText().setText("");
+        ;
+        panelDoctor.getNumberPhoneText().setText("");
+        panelDoctor.getIdDoctorText().setText("");
+        panelDoctor.getSpecialityText().removeAllItems();
     }
 
 }

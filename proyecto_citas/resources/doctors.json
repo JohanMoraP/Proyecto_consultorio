@@ -4,26 +4,26 @@
   "edad" : 23,
   "telefono" : "234324324",
   "identificacion" : "1035456492",
-  "especialidad" : "ODONTOLOGIA"
+  "especialidad" : "ODONTOLOGIA GENERAL"
 }, {
   "nombre" : "dario",
   "apellido" : "sanchez",
   "edad" : 132,
   "telefono" : "32131",
   "identificacion" : "23124",
-  "especialidad" : "GENERAL"
+  "especialidad" : "ODONTOLOGIA GENERAL"
 }, {
   "nombre" : "ANDREA",
   "apellido" : "SANCHEZ",
   "edad" : 23432,
   "telefono" : "34324",
   "identificacion" : "23432",
-  "especialidad" : "MEDICO"
+  "especialidad" : "ORTODONCIA"
 }, {
   "nombre" : "yyyyy",
   "apellido" : "yyyyyyy",
   "edad" : 1223,
   "telefono" : "223331",
   "identificacion" : "324W432423",
-  "especialidad" : "MEDICO"
+  "especialidad" : "ENDODONCIA/ODONTOLOGIA ESTETICA"
 } ]

@@ -9,14 +9,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import co.edu.uptc.presenter.App;
 import co.edu.uptc.view.TittlePanel;
 
 public class MenuDoctorPanel extends JPanel {
 
-    JButton btnSearchDoctor;
-    JButton btnCreateDoctor;
-    TittlePanel header;
+    private JButton btnSearchDoctor;
+    private JButton btnCreateDoctor;
+    private TittlePanel header;
 
     public MenuDoctorPanel(ActionListener listener) {
         initComponents(listener);
@@ -37,20 +36,22 @@ public class MenuDoctorPanel extends JPanel {
         btnCreateDoctor.setIcon(imageCreate);
         btnCreateDoctor.setBorderPainted(false);
         btnCreateDoctor.setContentAreaFilled(false);
+        btnCreateDoctor.setText("Crear Doctor");
         btnCreateDoctor.setAlignmentX(Component.CENTER_ALIGNMENT);
-        btnCreateDoctor.setActionCommand("createDoctor");
         btnCreateDoctor.addActionListener(listener);
+        btnCreateDoctor.setActionCommand("createDoctor");
         panelButtons.add(btnCreateDoctor);
 
         btnSearchDoctor = new JButton();
-        ImageIcon imageSearch = new ImageIcon(((new ImageIcon("images/cita.png")).getImage())
+        ImageIcon imageSearch = new ImageIcon(((new ImageIcon("images/doctorBuscar.png")).getImage())
                 .getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH));
         btnSearchDoctor.setIcon(imageSearch);
         btnSearchDoctor.setBorderPainted(false);
         btnSearchDoctor.setContentAreaFilled(false);
-        btnSearchDoctor.setAlignmentX(Component.CENTER_ALIGNMENT);
-        btnSearchDoctor.setActionCommand("searchDoctor");
+        btnSearchDoctor.setText("Buscar Doctor");
         btnSearchDoctor.addActionListener(listener);
+        btnSearchDoctor.setActionCommand("serachDoctor");
+        btnSearchDoctor.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelButtons.add(btnSearchDoctor);
 
         add(panelButtons, BorderLayout.CENTER);

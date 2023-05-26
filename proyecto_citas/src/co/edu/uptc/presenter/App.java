@@ -68,7 +68,7 @@ public class App implements ActionListener{
             frame.revalidate();
             frame.repaint();
             break;
-
+                
             case "doctors":
             schedule.cleanComboDoctors();
             schedule.addDoctorsDisponibility(controlModel.doctorsSpecialitySearch(schedule.getSpecialitySearch()), this);
@@ -87,7 +87,7 @@ public class App implements ActionListener{
 
             case "usuario":
                 frame.getBase().removeAll();
-                menuUserPanel= new MenuUserPanel(this);
+                menuUserPanel = new MenuUserPanel(this);
                 frame.getBase().add(menuUserPanel);
                 frame.revalidate();
                 frame.repaint();
@@ -95,7 +95,7 @@ public class App implements ActionListener{
 
             case "doctor":
                 frame.getBase().removeAll();
-                menuDoctorPanel= new MenuDoctorPanel(this);
+                menuDoctorPanel = new MenuDoctorPanel(this);
                 frame.getBase().add(menuDoctorPanel);
                 frame.revalidate();
                 frame.repaint();
@@ -143,19 +143,18 @@ public class App implements ActionListener{
                 break;
 
             case "buscarIdUser":
-                if(controlModel.searchUser(searchUser.idSearch())!=null){
+                if (controlModel.searchUser(searchUser.idSearch()) != null) {
                     searchUser.addData(controlModel.searchUser(searchUser.idSearch()));
                     frame.revalidate();
                     frame.repaint();
-                }
-                else {
+                } else {
                     JOptionPane.showMessageDialog(frame, "PACIENTE NO ENCONTRADO");
                     frame.getBase().removeAll();
                     searchUser = new SearchUserPanel(this);
                     frame.getBase().add(searchUser);
                     frame.revalidate();
                     frame.repaint();
-                }                   
+                }
                 break;
 
                 case "buscarIdBuscar":
@@ -176,24 +175,23 @@ public class App implements ActionListener{
                 break;
             
             case "buscarIdDoctor":
-            if(controlModel.searchDoctor(searchDoctorPanel.idSearch())!=null){
-                searchDoctorPanel.addData(controlModel.searchDoctor(searchDoctorPanel.idSearch()));
-                frame.revalidate();
-                frame.repaint();
-            }
-            else {
-                JOptionPane.showMessageDialog(frame, "MEDICO NO ENCONTRADO");
-                frame.getBase().removeAll();
-                searchDoctorPanel = new SearchDoctorPanel(this);
-                frame.getBase().add(searchDoctorPanel);
-                frame.revalidate();
-                frame.repaint();
-            }       
+                if (controlModel.searchDoctor(searchDoctorPanel.idSearch()) != null) {
+                    searchDoctorPanel.addData(controlModel.searchDoctor(searchDoctorPanel.idSearch()));
+                    frame.revalidate();
+                    frame.repaint();
+                } else {
+                    JOptionPane.showMessageDialog(frame, "MEDICO NO ENCONTRADO");
+                    frame.getBase().removeAll();
+                    searchDoctorPanel = new SearchDoctorPanel(this);
+                    frame.getBase().add(searchDoctorPanel);
+                    frame.revalidate();
+                    frame.repaint();
+                }
                 break;
 
             case "cancelarUser":
                 frame.getBase().removeAll();
-                menuUserPanel= new MenuUserPanel(this);
+                menuUserPanel = new MenuUserPanel(this);
                 frame.getBase().add(menuUserPanel);
                 frame.revalidate();
                 frame.repaint();
@@ -202,15 +200,15 @@ public class App implements ActionListener{
             case "guardarUser":
                 String[] data = user.sendDataFormUser();
                 controlModel.listPatients.add(new Patient(data[0], data[1],
-                Integer.parseInt(data[2]), data[3], data[4]));
+                        Integer.parseInt(data[2]), data[3], data[4]));
                 jsonFileManager.writePatient(controlModel.listPatients);
                 JOptionPane.showMessageDialog(frame, "PACIENTE GUARDADO CON EXITO");
                 user.cleanForm();
                 break;
-                
+
             case "cancelarDoctor":
                 frame.getBase().removeAll();
-                menuDoctorPanel= new MenuDoctorPanel(this);
+                menuDoctorPanel = new MenuDoctorPanel(this);
                 frame.getBase().add(menuDoctorPanel);
                 frame.revalidate();
                 frame.repaint();
@@ -219,14 +217,14 @@ public class App implements ActionListener{
             case "guardarDoctor":
                 String[] data2 = doctor.sendDataFormDoctor();
                 controlModel.listDoctors.add(new Doctor(data2[0], data2[1],
-                Integer.parseInt(data2[2]), data2[3], data2[4], data2[5]));
+                        Integer.parseInt(data2[2]), data2[3], data2[4], data2[5]));
                 jsonFileManager.writeDoctor(controlModel.listDoctors);
                 JOptionPane.showMessageDialog(frame, "DOCTOR GUARDADO CON EXITO");
                 doctor.cleanForm();
-            break;
+                break;
 
             case "cancelarCita":
-            System.out.println("CANCELAR CITA");
+                System.out.println("CANCELAR CITA");
                 break;
 
             case "guardarCita":
@@ -260,6 +258,5 @@ public class App implements ActionListener{
       
         }
     }
-
 
 }
