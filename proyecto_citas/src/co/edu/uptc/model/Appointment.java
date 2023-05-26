@@ -8,9 +8,16 @@ public class Appointment {
     private Doctor doctor;
     private Patient patient;
     private Date dateAppoint;
-    private LocalTime hour;
+    private String hour;
 
     public Appointment() {
+    }
+
+    public Appointment(Doctor doctor, Patient patient, Date dateAppoint, String hour) {
+        this.doctor = doctor;
+        this.patient = patient;
+        this.dateAppoint = dateAppoint;
+        this.hour = hour;
     }
 
     public Date getDateAppoint() {
@@ -37,11 +44,11 @@ public class Appointment {
         this.patient = patient;
     }
 
-    public LocalTime getHour() {
+    public String getHour() {
         return hour;
     }
 
-    public void setHour(LocalTime hour) {
+    public void setHour(String hour) {
         this.hour = hour;
     }
 

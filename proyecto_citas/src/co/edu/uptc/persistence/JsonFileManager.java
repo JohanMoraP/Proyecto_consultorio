@@ -4,7 +4,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -32,6 +35,7 @@ public class JsonFileManager {
 		listAppointmentJson= new ArrayList<>();
 		readDataUsers();
 		readDataDoctors();
+		readDataAppointment();
 	}
  
 	private void readDataUsers() {
@@ -93,18 +97,42 @@ public class JsonFileManager {
 		ArrayList<Appointment> listAppointment= new ArrayList<>();
 		JSONArray appointList = (JSONArray) obj;
 			for (Object appoint: appointList) {
-				listAppointment.add(generateAppointTemp((JSONObject)appoint));
+				try {
+					listAppointment.add(generateAppointTemp((JSONObject)appoint));
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		return listAppointment;
 	}
 
-	private Appointment generateAppointTemp(JSONObject obj) {
+	private Appointment generateAppointTemp(JSONObject obj) throws ParseException {
+		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 		Appointment appointmentTemporal = new Appointment();
-		/*appointmentTemporal.setDoctor((Doctor)obj.get("nombre"));
-		appointmentTemporal.setPatient((String)obj.get("apellido"));
-		appointmentTemporal.setHour((Integer.parseInt(""+obj.get("edad"))));*/
-		
+		appointmentTemporal.setDoctor(searchDoctor(obj.get("doctor")));
+		appointmentTemporal.setPatient(searchPatient(obj.get("paciente")));
+		appointmentTemporal.setDateAppoint(formato.parse((String) obj.get("fecha")));
+		appointmentTemporal.setHour((String)obj.get("hora"));
 		return appointmentTemporal;
+	}
+
+	private Patient searchPatient(Object object) {
+		for (Patient patient : listPatientsJson) {
+			if(patient.getIdentification().equals((String)object)){
+				return patient;
+			}
+		}
+		return null;
+	}
+
+	private Doctor searchDoctor(Object object) {
+		for (Doctor doctor : listDoctorsJson) {
+			if(doctor.getIdentification().equals((String)object)){
+				return doctor;
+			}
+		}
+		return null;
 	}
 
 	private ArrayList<Doctor> listDoctor(JSONArray obj) {
@@ -195,8 +223,37 @@ public class JsonFileManager {
 		}
 		
 	}
+
+
+	public void writeAppointment(ArrayList<Appointment> appointmentList) {
+		try {
+			JsonGenerator jsonGenerator = new JsonFactory().createGenerator(new FileOutputStream("resources/appointment.json"));
+			jsonGenerator.setPrettyPrinter(new DefaultPrettyPrinter());
+			jsonGenerator.writeStartArray();
+			for (Appointment appointment : appointmentList) {
+				jsonGenerator.writeStartObject();
+				jsonGenerator.writeStringField("doctor", appointment.getDoctor().getIdentification());
+				jsonGenerator.writeStringField("paciente", appointment.getPatient().getIdentification());
+				jsonGenerator.writeStringField("fecha", convertDate(appointment.getDateAppoint()));
+				jsonGenerator.writeStringField("hora", appointment.getHour());
+				jsonGenerator.writeEndObject();
+			}
+			jsonGenerator.writeEndArray();
+			jsonGenerator.flush();
+			jsonGenerator.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+	}
+
 	
-	
+	private String convertDate(Date dateAppoint) {
+		SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy");
+        String date1 = format1.format(dateAppoint);
+		return date1;
+	}
+
 	public ArrayList<Patient> getListPatientsJson() {
 		return listPatientsJson;
 	}

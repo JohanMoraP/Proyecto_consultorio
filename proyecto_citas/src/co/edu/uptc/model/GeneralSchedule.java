@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class GeneralSchedule {
 
-    private ArrayList<Appointment> scheduleAppoint;
+    public ArrayList<Appointment> scheduleAppoint;
 
     public void addAppoint(Appointment appoint) {
         this.scheduleAppoint.add(appoint);

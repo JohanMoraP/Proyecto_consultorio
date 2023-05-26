@@ -4,14 +4,14 @@
   "edad" : 23,
   "telefono" : "234324324",
   "identificacion" : "1035456492",
-  "especialidad" : "odontologia"
+  "especialidad" : "ODONTOLOGIA"
 }, {
   "nombre" : "dario",
   "apellido" : "sanchez",
   "edad" : 132,
   "telefono" : "32131",
   "identificacion" : "23124",
-  "especialidad" : "general"
+  "especialidad" : "GENERAL"
 }, {
   "nombre" : "ANDREA",
   "apellido" : "SANCHEZ",
