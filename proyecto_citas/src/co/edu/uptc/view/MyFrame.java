@@ -41,7 +41,11 @@ public class MyFrame extends JFrame {
 		add(base, BorderLayout.CENTER);
 
 	}
-
+	
+	
+	
+	
+	
 	public PanelBase getBase() {
 		return base;
 	}

@@ -28,4 +28,16 @@
   "edad" : 23,
   "telefono" : "32432432",
   "identificacion" : "2423432"
+}, {
+  "nombre" : "Samir",
+  "apellido" : "Molinares",
+  "edad" : 18,
+  "telefono" : "32132132212",
+  "identificacion" : "000000000"
+}, {
+  "nombre" : "Hector",
+  "apellido" : "Ramirez",
+  "edad" : 18,
+  "telefono" : "0180002525",
+  "identificacion" : "123456789"
 } ]

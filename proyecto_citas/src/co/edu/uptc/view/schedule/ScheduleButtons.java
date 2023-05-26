@@ -19,17 +19,23 @@ import java.util.GregorianCalendar;
 
 public class ScheduleButtons extends JPanel implements ItemListener {
     private JCalendar calendar;
-    private JComboBox<String> doctors, speciality, hour;
-    private JPanel panelButtons1, panelButtons2, panelButtons3;
+    private JComboBox<String> doctors;
+    private JComboBox<String> speciality;
+    private JComboBox<String> hour;
+    private JPanel panelButtons1;
+    private JPanel panelButtons2;
+    private JPanel panelButtons3;
     public ActionListener listenerP;
-    public GreenButton buttonSpeciality, buttonDoctor;
+    public GreenButton buttonSpeciality;
+    private GreenButton buttonDoctor;
     public Calendar cal;
     public String hourSelected;
 
     public ScheduleButtons(ActionListener listener, ArrayList<String> specialityList) {
-        listenerP=listener;
+        cal = cal.getInstance();
+        listenerP = listener;
         initComponents();
-        createButtons(specialityList,listener);
+        createButtons(specialityList, listener);
         setVisible(true);
     }
 
@@ -50,11 +56,10 @@ public class ScheduleButtons extends JPanel implements ItemListener {
             }
         });
 
-       
     }
 
     private void createButtons(ArrayList<String> specialityList, ActionListener listener) {
-        panelButtons1= new JPanel();
+        panelButtons1 = new JPanel();
         panelButtons1.setLayout(new BoxLayout(panelButtons1, BoxLayout.X_AXIS));
         panelButtons1.setBorder(BorderFactory.createEmptyBorder(10, 10, 15, 15));
         JLabel label3 = new JLabel();
@@ -67,16 +72,16 @@ public class ScheduleButtons extends JPanel implements ItemListener {
             speciality.addItem(specialityItem);
         }
         panelButtons1.add(speciality);
-       
+
         buttonSpeciality = new GreenButton("Consultar");
         buttonSpeciality.setBounds(5, 10, 10, 5);
         buttonSpeciality.setActionCommand("doctors");
         buttonSpeciality.addActionListener(listener);
         panelButtons1.add(buttonSpeciality);
-      
+
         add(panelButtons1);
 
-        panelButtons2= new JPanel();
+        panelButtons2 = new JPanel();
         panelButtons2.setLayout(new BoxLayout(panelButtons2, BoxLayout.X_AXIS));
         panelButtons2.setBorder(BorderFactory.createEmptyBorder(10, 10, 15, 15));
         JLabel label1 = new JLabel();
@@ -92,10 +97,10 @@ public class ScheduleButtons extends JPanel implements ItemListener {
         buttonDoctor.setActionCommand("hours");
         buttonDoctor.addActionListener(listener);
         panelButtons2.add(buttonDoctor);
-      
+
         add(panelButtons2);
 
-        panelButtons3= new JPanel();
+        panelButtons3 = new JPanel();
         panelButtons3.setLayout(new BoxLayout(panelButtons3, BoxLayout.X_AXIS));
         panelButtons3.setBorder(BorderFactory.createEmptyBorder(10, 10, 15, 15));
         JLabel label = new JLabel();
@@ -109,13 +114,12 @@ public class ScheduleButtons extends JPanel implements ItemListener {
         add(panelButtons3);
     }
 
-     public void addDoctorsDisponibility(ArrayList<Doctor> doctorsDisponibility, ActionListener listener){
+    public void addDoctorsDisponibility(ArrayList<Doctor> doctorsDisponibility, ActionListener listener) {
         for (Doctor doctor : doctorsDisponibility) {
-            doctors.addItem(doctor.getName() + " " +doctor.getLastName());
+            doctors.addItem(doctor.getName() + " " + doctor.getLastName());
         }
-     }
+    }
 
-     
     public void addHoursDisponibility(ArrayList<String> listHourDisponibility) {
         for (String listHour : listHourDisponibility) {
             hour.addItem(listHour);
@@ -164,10 +168,9 @@ public class ScheduleButtons extends JPanel implements ItemListener {
     @Override
     public void itemStateChanged(ItemEvent e) {
         // TODO Auto-generated method stub
-        if (e.getSource()==hour) {
-            hourSelected=(String)hour.getSelectedItem();
+        if (e.getSource() == hour) {
+            hourSelected = (String) hour.getSelectedItem();
         }
     }
-
 
 }

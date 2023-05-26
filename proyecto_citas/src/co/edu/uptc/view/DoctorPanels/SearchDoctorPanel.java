@@ -2,6 +2,7 @@ package co.edu.uptc.view.DoctorPanels;
 
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -20,7 +21,7 @@ public class SearchDoctorPanel extends JPanel {
         initComponents(listener);
     }
 
-    private void initComponents(ActionListener listener) {
+    public void initComponents(ActionListener listener) {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         header = new TittlePanel();
         header.getTittle().setText("BUSCAR MEDICO");
@@ -35,8 +36,8 @@ public class SearchDoctorPanel extends JPanel {
         return searchBarId.getTextIdUser();
     }
 
-    public void addData(String[] data) {
-        panelDoctorData = new PanelDoctorData();
+    public void addData(String[] data , ArrayList<String> specialityList) {
+        panelDoctorData = new PanelDoctorData(specialityList);
         panelDoctorData.getNameText().setText(data[0]);
         panelDoctorData.getLastNameText().setText(data[1]);
         panelDoctorData.getAgeText().setText(data[2]);

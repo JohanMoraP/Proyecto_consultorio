@@ -12,7 +12,6 @@ import javax.swing.JTextField;
 public class SearchBarId extends JPanel {
     private JLabel searchLabel;
     private JTextField textField;
-    private JComboBox<String> items;
     private GreenButton search;
 
     public SearchBarId(ActionListener listener, String namePanel) {
@@ -27,11 +26,12 @@ public class SearchBarId extends JPanel {
 
         textField = new JTextField(20);
         add(textField);
+        
+       
         search = new GreenButton("Buscar");
         search.setActionCommand("buscarId" + namePanel);
         search.addActionListener(listener);
         add(search);
-
     }
 
     public String getTextIdUser() {
@@ -41,5 +41,9 @@ public class SearchBarId extends JPanel {
     public void setTextField(JTextField textField) {
         this.textField = textField;
     }
+
+
+    
+    
 
 }

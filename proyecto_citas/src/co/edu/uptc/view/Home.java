@@ -31,7 +31,7 @@ public class Home extends JPanel {
         add(icon, BorderLayout.CENTER);
 
         welcome = new TittlePanel();
-        welcome.getTittle().setText("Bienvenido");
+        welcome.getTittle().setText("Bienvenido a DentalMaster");
         welcome.setFont(new Font("Product Sans", Font.PLAIN, 30));
         ;
         add(welcome, BorderLayout.NORTH);

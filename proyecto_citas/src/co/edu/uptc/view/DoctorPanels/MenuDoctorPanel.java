@@ -50,7 +50,7 @@ public class MenuDoctorPanel extends JPanel {
         btnSearchDoctor.setContentAreaFilled(false);
         btnSearchDoctor.setText("Buscar Doctor");
         btnSearchDoctor.addActionListener(listener);
-        btnSearchDoctor.setActionCommand("serachDoctor");
+        btnSearchDoctor.setActionCommand("searchDoctor");
         btnSearchDoctor.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelButtons.add(btnSearchDoctor);
 

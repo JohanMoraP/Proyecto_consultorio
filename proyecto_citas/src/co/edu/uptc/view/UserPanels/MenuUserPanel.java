@@ -29,7 +29,7 @@ public class MenuUserPanel extends JPanel {
        
         JPanel panelButtons= new JPanel();
     
-        btnCreateUser = new JButton();
+        btnCreateUser = new JButton("Crear Usuario");
         ImageIcon imageCreate = new ImageIcon(((new ImageIcon("images/agregarUsuario.png")).getImage()).getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH));
         btnCreateUser.setIcon(imageCreate);
         btnCreateUser.setBorderPainted(false);
@@ -39,7 +39,7 @@ public class MenuUserPanel extends JPanel {
         btnCreateUser.addActionListener(listener);
         panelButtons.add(btnCreateUser);
 
-        btnSearchUser = new JButton();
+        btnSearchUser = new JButton("Buscar Usuario");
         ImageIcon imageSearch = new ImageIcon(((new ImageIcon("images/buscarUsuario.png")).getImage()).getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH));
         btnSearchUser.setIcon(imageSearch);
         btnSearchUser.setBorderPainted(false);

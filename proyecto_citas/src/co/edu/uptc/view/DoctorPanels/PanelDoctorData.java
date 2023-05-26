@@ -3,7 +3,9 @@ package co.edu.uptc.view.DoctorPanels;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -23,13 +25,13 @@ public class PanelDoctorData extends JPanel {
     private JComboBox<String> specialityText;
     private JTextField idDoctorText;
 
-    public PanelDoctorData() {
+    public PanelDoctorData(ArrayList<String> specialityList) {
         setPreferredSize(new Dimension(600, 85));
-        initComponents();
+        initComponents(specialityList);
 
     }
 
-    private void initComponents() {
+    private void initComponents(ArrayList<String> specialityList) {
 
         setLayout(new GridLayout(3, 4, 15, 30));
         name = new JLabel("Nombre");
@@ -65,8 +67,12 @@ public class PanelDoctorData extends JPanel {
         specialty = new JLabel("Especialidad");
         specialty.setAlignmentX(Component.RIGHT_ALIGNMENT);
         add(specialty);
+        
         specialityText = new JComboBox<String>();
-        specialityText.setPreferredSize(new Dimension(12, 5));
+        specialityText.setBorder(BorderFactory.createEmptyBorder(0, 0, 8, 8));
+        for (String specialityItem : specialityList) {
+            specialityText.addItem(specialityItem);
+        }
         add(specialityText);
 
     }

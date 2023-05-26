@@ -2,6 +2,7 @@ package co.edu.uptc.view.DoctorPanels;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -11,22 +12,22 @@ import co.edu.uptc.view.AppointmentPanels.AppointmentButtons;
 
 public class DoctorPanel extends JPanel {
 
-    public TittlePanel header;
-    public PanelDoctorData panelDoctor;
-    public AppointmentButtons buttons;
+	private TittlePanel header;
+	private PanelDoctorData panelDoctor;
+	private AppointmentButtons buttons;
 
-    public DoctorPanel(ActionListener listener) {
+    public DoctorPanel(ActionListener listener, ArrayList<String> specialityList) {
 
         setBackground(Color.white);
-        initComponents(listener);
+        initComponents(listener, specialityList);
     }
 
-    private void initComponents(ActionListener listener) {
+    private void initComponents(ActionListener listener, ArrayList<String> specialityList) {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         header = new TittlePanel();
         header.getTittle().setText("CREAR MEDICO");
         add(header);
-        panelDoctor = new PanelDoctorData();
+        panelDoctor = new PanelDoctorData(specialityList);
         panelDoctor.setBorder(
                 BorderFactory.createEmptyBorder(0, (int) (this.getWidth() * 0.4), 0, (int) (this.getWidth() * 0.4)));
 

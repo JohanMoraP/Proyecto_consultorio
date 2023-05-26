@@ -36,6 +36,7 @@ public class SchedulePanel extends JPanel {
         asign.setBounds(5, 10, 10, 5);
         asign.setActionCommand("asignar");
         asign.addActionListener(listener);
+        
         panel.add(asign);
         add(panel, BorderLayout.SOUTH);
     }

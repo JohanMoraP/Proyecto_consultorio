@@ -1,6 +1,6 @@
 [ {
-  "nombre" : "edwin",
-  "apellido" : "grijalba",
+  "nombre" : "Edwin",
+  "apellido" : "Morales",
   "edad" : 23,
   "telefono" : "234324324",
   "identificacion" : "1035456492",
@@ -8,22 +8,29 @@
 }, {
   "nombre" : "dario",
   "apellido" : "sanchez",
-  "edad" : 132,
+  "edad" : 32,
   "telefono" : "32131",
   "identificacion" : "23124",
   "especialidad" : "ODONTOLOGIA GENERAL"
 }, {
   "nombre" : "ANDREA",
   "apellido" : "SANCHEZ",
-  "edad" : 23432,
+  "edad" : 43,
   "telefono" : "34324",
   "identificacion" : "23432",
   "especialidad" : "ORTODONCIA"
 }, {
-  "nombre" : "yyyyy",
-  "apellido" : "yyyyyyy",
-  "edad" : 1223,
+  "nombre" : "Lois",
+  "apellido" : "Manchester",
+  "edad" : 28,
   "telefono" : "223331",
   "identificacion" : "324W432423",
   "especialidad" : "ENDODONCIA/ODONTOLOGIA ESTETICA"
+}, {
+  "nombre" : "Jorge",
+  "apellido" : "Hoyos",
+  "edad" : 45,
+  "telefono" : "3213213210",
+  "identificacion" : "123",
+  "especialidad" : "CIRUGIA ORAL Y MAXILOFACIAL"
 } ]
