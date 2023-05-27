@@ -2,6 +2,7 @@ package co.edu.uptc.view.AppointmentPanels;
 
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.BoxLayout;
@@ -11,16 +12,15 @@ import javax.swing.JPanel;
 import co.edu.uptc.model.Appointment;
 import co.edu.uptc.view.SearchBarId;
 import co.edu.uptc.view.TittlePanel;
-import co.edu.uptc.view.UserPanels.PanelUserData;
 
 public class DelateAppoint extends JPanel {
 	
 	private SearchBarId searchBarId;
 	private TittlePanel header;
 	private JList<String> listAppoints;
+    private JTableData tablePanel;
 
     public DelateAppoint(ActionListener listener) {
-        // setPreferredSize(new Dimension(400, 1000));
         initComponents(listener);
     }
 
@@ -35,8 +35,8 @@ public class DelateAppoint extends JPanel {
         
         add(searchBarId);
         
-        listAppoints = new JList<>();
-        add(listAppoints);
+        /*listAppoints = new JList<>();
+        add(listAppoints);*/
         
     }
 
@@ -51,6 +51,14 @@ public class DelateAppoint extends JPanel {
 	public void setListAppoints(JList<String> listAppoints) {
 		this.listAppoints = listAppoints;
 	}
+
+    public void addDataTable(ArrayList<Appointment> searchAppointForUser) {
+        System.out.println(searchAppointForUser.size());
+        tablePanel= new JTableData();
+        tablePanel.addElementToTable(searchAppointForUser);
+        add(tablePanel);
+       
+    }
 
 
 }

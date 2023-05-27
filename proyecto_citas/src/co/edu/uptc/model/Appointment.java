@@ -1,10 +1,9 @@
 package co.edu.uptc.model;
-
-import java.time.LocalTime;
 import java.util.Date;
 
 public class Appointment {
 
+    private int idCita;
     private Doctor doctor;
     private Patient patient;
     private Date dateAppoint;
@@ -13,13 +12,22 @@ public class Appointment {
     public Appointment() {
     }
 
-    public Appointment(Doctor doctor, Patient patient, Date dateAppoint, String hour) {
+    public Appointment(int idCita,Doctor doctor, Patient patient, Date dateAppoint, String hour) {
+        this.idCita=idCita;
         this.doctor = doctor;
         this.patient = patient;
         this.dateAppoint = dateAppoint;
         this.hour = hour;
     }
     
+
+    public int getIdCita() {
+        return idCita;
+    }
+
+    public void setIdCita(int idCita) {
+        this.idCita = idCita;
+    }
 
     @Override
 	public String toString() {

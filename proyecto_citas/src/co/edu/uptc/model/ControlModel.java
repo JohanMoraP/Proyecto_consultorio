@@ -201,4 +201,15 @@ public class ControlModel {
         this.specialityList = specialityList;
     }
 
+
+    public ArrayList<Appointment> searchAppointForUser(String idSearch) {
+        ArrayList<Appointment> appointForUser= new ArrayList<>();
+        for (Appointment appoin : getGeneralSchedule().scheduleAppoint) {
+            if(appoin.getPatient().getIdentification().equals(idSearch)){
+                appointForUser.add(appoin);
+            }
+        }
+        return appointForUser;
+    }
+
 }

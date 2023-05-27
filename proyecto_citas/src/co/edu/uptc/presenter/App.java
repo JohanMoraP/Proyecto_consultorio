@@ -1,27 +1,19 @@
 package co.edu.uptc.presenter;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
-import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.border.Border;
-
 import co.edu.uptc.model.Appointment;
 import co.edu.uptc.model.ControlModel;
 import co.edu.uptc.model.Doctor;
 import co.edu.uptc.model.Patient;
 import co.edu.uptc.persistence.JsonFileManager;
-import co.edu.uptc.view.GreenButton;
 import co.edu.uptc.view.Home;
 import co.edu.uptc.view.MyFrame;
-import co.edu.uptc.view.SearchBarId;
 import co.edu.uptc.view.AppointmentPanels.AppointmentPanel;
 import co.edu.uptc.view.AppointmentPanels.DelateAppoint;
 import co.edu.uptc.view.AppointmentPanels.MenuAppointment;
@@ -44,6 +36,7 @@ public class App implements ActionListener{
 	private  ControlModel controlModel;
 	private  SchedulePanel schedule;
 	private  AppointmentPanel appointment;
+	private DelateAppoint delate; 
 	
 	private  SearchDoctorPanel searchDoctorPanel;
 	private  UserPanel user;
@@ -85,18 +78,14 @@ public class App implements ActionListener{
 			break;
 		case "delateAppoint" :
 			frame.getBase().removeAll();
-			DelateAppoint delate = new DelateAppoint(this);
+			delate = new DelateAppoint(this);
 			frame.getBase().add(delate);
 			frame.revalidate();
 			frame.repaint();
 			break;
 		case "buscarIdDelateAppoint":
-				DelateAppoint delate1 = new DelateAppoint(this);
-				
-			if(controlModel.searchUser(searchUserAppoin.idSearch())!=null){
-				searchUser.addData(controlModel.searchUser(searchUserAppoin.idSearch()));
-				ArrayList<Appointment> appoint = controlModel.generalSchedule.scheduleAppoint;
-				delate1.getListAppoints(); 
+			if(controlModel.searchUser(delate.idSearch())!=null){
+				delate.addDataTable(controlModel.searchAppointForUser(delate.idSearch()));
 				frame.revalidate();
 				frame.repaint();
 			}
@@ -277,7 +266,7 @@ public class App implements ActionListener{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			controlModel.generalSchedule.scheduleAppoint.add(new Appointment((Doctor)dataAppointment[1],(Patient)dataAppointment[0], fecha, ""+dataAppointment[2]));
+			controlModel.generalSchedule.scheduleAppoint.add(new Appointment(controlModel.generalSchedule.scheduleAppoint.size(),(Doctor)dataAppointment[1],(Patient)dataAppointment[0], fecha, ""+dataAppointment[2]));
 			jsonFileManager.writeAppointment(controlModel.generalSchedule.getScheduleAppoint());
 			JOptionPane.showMessageDialog(frame, "CITA GUARDADA CON EXITO");
 			frame.getBase().removeAll();

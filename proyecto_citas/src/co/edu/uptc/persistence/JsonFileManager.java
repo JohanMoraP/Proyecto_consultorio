@@ -110,6 +110,7 @@ public class JsonFileManager {
 	private Appointment generateAppointTemp(JSONObject obj) throws ParseException {
 		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 		Appointment appointmentTemporal = new Appointment();
+		appointmentTemporal.setIdCita((Integer.parseInt(""+obj.get("idCita"))));
 		appointmentTemporal.setDoctor(searchDoctor(obj.get("doctor")));
 		appointmentTemporal.setPatient(searchPatient(obj.get("paciente")));
 		appointmentTemporal.setDateAppoint(formato.parse((String) obj.get("fecha")));
@@ -232,6 +233,7 @@ public class JsonFileManager {
 			jsonGenerator.writeStartArray();
 			for (Appointment appointment : appointmentList) {
 				jsonGenerator.writeStartObject();
+				jsonGenerator.writeNumberField("idCita", appointment.getIdCita());
 				jsonGenerator.writeStringField("doctor", appointment.getDoctor().getIdentification());
 				jsonGenerator.writeStringField("paciente", appointment.getPatient().getIdentification());
 				jsonGenerator.writeStringField("fecha", convertDate(appointment.getDateAppoint()));
