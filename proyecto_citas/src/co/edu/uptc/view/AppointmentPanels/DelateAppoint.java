@@ -59,6 +59,9 @@ public class DelateAppoint extends JPanel {
         add(tablePanel);
        
     }
-
+    public ArrayList<Appointment> appointmentList(){
+		return tablePanel.getListAppointement();
+    	
+    }
 
 }

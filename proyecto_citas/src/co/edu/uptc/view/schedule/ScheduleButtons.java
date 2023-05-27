@@ -63,7 +63,7 @@ public class ScheduleButtons extends JPanel implements ItemListener {
         panelButtons1.setLayout(new BoxLayout(panelButtons1, BoxLayout.X_AXIS));
         panelButtons1.setBorder(BorderFactory.createEmptyBorder(10, 10, 15, 15));
         JLabel label3 = new JLabel();
-        label3.setText("ESPECIALIDAD");
+        label3.setText("ESPECIALIDAD CONSULTA");
         label3.setBorder(BorderFactory.createEmptyBorder(0, 0, 8, 8));
         panelButtons1.add(label3);
         speciality = new JComboBox<String>();

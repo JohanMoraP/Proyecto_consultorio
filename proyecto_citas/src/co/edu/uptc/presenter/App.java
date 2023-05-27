@@ -13,7 +13,6 @@ import co.edu.uptc.model.Patient;
 import co.edu.uptc.persistence.JsonFileManager;
 import co.edu.uptc.view.Home;
 import co.edu.uptc.view.MyFrame;
-import co.edu.uptc.view.AppointmentPanels.AppointmentPanel;
 import co.edu.uptc.view.AppointmentPanels.DelateAppoint;
 import co.edu.uptc.view.AppointmentPanels.MenuAppointment;
 import co.edu.uptc.view.DoctorPanels.DoctorPanel;
@@ -54,6 +53,7 @@ public class App implements ActionListener{
 		controlModel.listPatients=jsonFileManager.getListPatientsJson();
 		controlModel.listDoctors=jsonFileManager.getListDoctorsJson();
 		controlModel.generalSchedule.scheduleAppoint=jsonFileManager.getListAppointmentJson();
+		
 	}
 	
 	public void cleanFrame() {
@@ -91,6 +91,7 @@ public class App implements ActionListener{
 			if(controlModel.searchUser(delate.idSearch())!=null){
 				delate.addDataTable(controlModel.searchAppointForUser(delate.idSearch()));
 				revalidateFrame();
+				jsonFileManager.setListAppointmentJson(	delate.appointmentList());
 			}
 			else {
 				JOptionPane.showMessageDialog(frame, "PACIENTE NO ENCONTRADO");
@@ -215,8 +216,7 @@ public class App implements ActionListener{
 
 		case "guardarUser":
 			String[] data = user.sendDataFormUser();
-			controlModel.listPatients.add(new Patient(data[0], data[1],
-					Integer.parseInt(data[2]), data[3], data[4]));
+			controlModel.listPatients.add(new Patient(data[0], data[1],	Integer.parseInt(data[2]), data[3], data[4]));
 			jsonFileManager.writePatient(controlModel.listPatients);
 			JOptionPane.showMessageDialog(frame, "PACIENTE GUARDADO CON EXITO");
 			user.cleanForm();
@@ -231,8 +231,7 @@ public class App implements ActionListener{
 
 		case "guardarDoctor":
 			String[] data2 = doctor.sendDataFormDoctor();
-			controlModel.listDoctors.add(new Doctor(data2[0], data2[1],
-					Integer.parseInt(data2[2]), data2[3], data2[4], data2[5]));
+			controlModel.listDoctors.add(new Doctor(data2[0], data2[1],	Integer.parseInt(data2[2]), data2[3], data2[4], data2[5]));
 			jsonFileManager.writeDoctor(controlModel.listDoctors);
 			JOptionPane.showMessageDialog(frame, "DOCTOR GUARDADO CON EXITO");
 			doctor.cleanForm();

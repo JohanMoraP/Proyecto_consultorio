@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.text.SimpleDateFormat;
@@ -15,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 import java.awt.event.ActionEvent;
@@ -51,6 +53,7 @@ public class JTableData extends JPanel implements MouseListener{
 		jtElements.setFillsViewportHeight(true);
 		jtElements.setRowHeight(50);
 		jtElements.setBorder(null);
+		jtElements.setDefaultEditor(Object.class, null);
 		jtElements.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
 		jsTable = new JScrollPane(jtElements, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		jsTable.addMouseListener(this);
@@ -71,31 +74,50 @@ public class JTableData extends JPanel implements MouseListener{
 	}
 
 	public void addElementToTable(ArrayList<Appointment> listAppointementUser) {
-		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-		 Object[] column = new Object[6];
+	    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+	    for (int i = 0; i < listAppointementUser.size(); i++) {
+	        Appointment appointment = listAppointementUser.get(i);
+	        Object[] column = new Object[6];
+	        column[0] = "" + appointment.getIdCita();
+	        column[1] = appointment.getDoctor().getName() + " " + appointment.getDoctor().getLastName();
+	        column[2] = appointment.getPatient().getName() + " " + appointment.getPatient().getLastName();
+	        column[3] = formato.format(appointment.getDateAppoint());
+	        column[4] = appointment.getHour();
 
-		    for (int i = 0; i < listAppointementUser.size(); i++) {
-		        column[0] = "" + listAppointementUser.get(i).getIdCita();
-		        column[1] = ("" + (listAppointementUser.get(i).getDoctor().getName() + " " + listAppointementUser.get(i).getDoctor().getLastName()));
-		        column[2] = "" + (listAppointementUser.get(i).getPatient().getName() + " " + listAppointementUser.get(i).getPatient().getLastName());
-		        column[3] = "" + formato.format(listAppointementUser.get(i).getDateAppoint());
-		        column[4] = "" + listAppointementUser.get(i).getHour();
-		        JButton cancelButton = new JButton("boton cancelar");
-	            cancelButton.addActionListener(e -> {
-	                JButton button = (JButton) e.getSource();
-	                int row = jtElements.rowAtPoint(button.getLocation());
-	                listAppointementUser.remove(row);
-	                System.out.println(row);
-	                // Aquí puedes obtener los datos de la fila correspondiente y realizar las acciones necesarias
-	            });
-	            column[5] = cancelButton;
-                listAppointement = listAppointementUser;
-	            dtmElements.addRow(column);
-	        }
-	    
-		
+	        JButton cancelButton = new JButton("boton cancelar");
+	        cancelButton.addMouseListener(this);
+	        
+	        jtElements.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
+	        column[5] = cancelButton;
+	        listAppointement = listAppointementUser;
+	        dtmElements.addRow(column);
+	    }
 	}
+
+
+
 	
+	private void updateTable() {
+	    dtmElements.setRowCount(0);
+
+	    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+	    for (Appointment appointment : listAppointement) {
+	        Object[] column = new Object[6];
+	        column[0] = "" + appointment.getIdCita();
+	        column[1] = appointment.getDoctor().getName() + " " + appointment.getDoctor().getLastName();
+	        column[2] = appointment.getPatient().getName() + " " + appointment.getPatient().getLastName();
+	        column[3] = formato.format(appointment.getDateAppoint());
+	        column[4] = appointment.getHour();
+
+	        JButton cancelButton = new JButton("boton cancelar");
+	        cancelButton.addMouseListener(this);
+	        column[5] = cancelButton;
+
+	        dtmElements.addRow(column);
+	    }
+	}
+
+
 	
 
 	public void cleanRowsTable() {
@@ -104,9 +126,20 @@ public class JTableData extends JPanel implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		 int row = jtElements.rowAtPoint(e.getPoint());
-		 System.out.println(row);
+	    int column = jtElements.getColumnModel().getColumnIndex(" ");
+	    int row = jtElements.rowAtPoint(e.getPoint());
+
+	    if (row != -1 && column != -1 && jtElements.getColumnClass(column).equals(JButton.class)) {
+	        JButton cancelButton = (JButton) jtElements.getValueAt(row, column);
+
+	        if (e.getSource() == cancelButton) {
+	            listAppointement.remove(row);
+	            dtmElements.removeRow(row);
+	            updateTable();
+	        }
+	    }
 	}
+
 
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -145,15 +178,20 @@ public class JTableData extends JPanel implements MouseListener{
 
 	private class ButtonRenderer extends JButton implements TableCellRenderer {
 
-	        public ButtonRenderer() {
-	            setOpaque(true);
-	        }
+	    public ButtonRenderer() {
+	        setOpaque(true);
+	    }
 
-	        @Override
-	        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-	                boolean hasFocus, int row, int column) {
+	    @Override
+	    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+	            boolean hasFocus, int row, int column) {
+	        if (value instanceof Component) {
+	            return (Component) value;
+	        } else {
 	            setText((value == null) ? "" : value.toString());
 	            return this;
 	        }
 	    }
+	}
+
 }
