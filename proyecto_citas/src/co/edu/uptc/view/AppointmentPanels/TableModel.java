@@ -1,5 +1,9 @@
 package co.edu.uptc.view.AppointmentPanels;
 
-public class TableModel {
+import javax.swing.table.DefaultTableModel;
+
+public class TableModel extends DefaultTableModel{
+	
 
 }
+
