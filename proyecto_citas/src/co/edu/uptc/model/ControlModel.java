@@ -24,7 +24,8 @@ public class ControlModel {
         specialityList= new ArrayList<>();
         specialityList.add("ODONTOLOGIA GENERAL");
         specialityList.add("CIRUGIA ORAL Y MAXILOFACIAL");
-        specialityList.add("ENDODONCIA/ODONTOLOGIA ESTETICA");
+        specialityList.add("ENDODONCIA");
+        specialityList.add("ODONTOLOGIA ESTETICA");
         specialityList.add("PERIODONCIA");
         specialityList.add("ORTODONCIA");
         specialityList.add("PATOLOGIA BUCAL");

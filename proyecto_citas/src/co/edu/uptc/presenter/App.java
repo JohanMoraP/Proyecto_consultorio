@@ -92,10 +92,11 @@ public class App implements ActionListener{
 			break;
 		case "buscarIdDelateAppoint":
 				DelateAppoint delate1 = new DelateAppoint(this);
-			
+				
 			if(controlModel.searchUser(searchUserAppoin.idSearch())!=null){
-				searchUserAppoin.addData(controlModel.searchUser(searchUserAppoin.idSearch()));
-				dataAppointment[0]=(controlModel.searchUserObject(searchUserAppoin.idSearch()));
+				searchUser.addData(controlModel.searchUser(searchUserAppoin.idSearch()));
+				ArrayList<Appointment> appoint = controlModel.generalSchedule.scheduleAppoint;
+				delate1.getListAppoints(); 
 				frame.revalidate();
 				frame.repaint();
 			}
@@ -107,6 +108,7 @@ public class App implements ActionListener{
 				frame.revalidate();
 				frame.repaint();
 			}  
+			
 			break;
 		case "doctors":
 			schedule.cleanComboDoctors();

@@ -33,7 +33,7 @@ public class SearchDoctorPanel extends JPanel {
     }
 
     public String idSearch() {
-        return searchBarId.getTextIdUser();
+        return searchBarId.getTextId();
     }
 
     public void addData(String[] data , ArrayList<String> specialityList) {

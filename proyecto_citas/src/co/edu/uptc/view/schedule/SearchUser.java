@@ -32,8 +32,8 @@ public class SearchUser extends JPanel {
     }
 
     public String idSearch(){
-        System.out.println(searchBarId.getTextIdUser());
-        return searchBarId.getTextIdUser();
+        System.out.println(searchBarId.getTextId());
+        return searchBarId.getTextId();
     }
 
     public void addData(String[] data) {

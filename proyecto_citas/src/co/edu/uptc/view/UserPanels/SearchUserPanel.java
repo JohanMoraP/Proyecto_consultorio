@@ -30,7 +30,7 @@ public class SearchUserPanel extends JPanel {
     }
 
     public String idSearch() {
-        return searchBarId.getTextIdUser();
+        return searchBarId.getTextId();
     }
 
     public void addData(String[] data) {

@@ -34,7 +34,7 @@ public class SearchBarId extends JPanel {
         add(search);
     }
 
-    public String getTextIdUser() {
+    public String getTextId() {
         return textField.getText();
     }
 

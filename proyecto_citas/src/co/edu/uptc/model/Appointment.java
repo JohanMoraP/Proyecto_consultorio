@@ -19,8 +19,14 @@ public class Appointment {
         this.dateAppoint = dateAppoint;
         this.hour = hour;
     }
+    
 
-    public Date getDateAppoint() {
+    @Override
+	public String toString() {
+		return "Appointment [patient=" + patient + ", dateAppoint=" + dateAppoint + ", hour=" + hour + "]";
+	}
+
+	public Date getDateAppoint() {
 		return dateAppoint;
 	}
 
