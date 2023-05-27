@@ -3,6 +3,7 @@ package co.edu.uptc.view.menuPanels;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
+import java.awt.Font;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
@@ -46,7 +47,8 @@ public class PanelMenu extends JPanel {
                 btnHome.setActionCommand("home");
                 add(btnHome);
 
-                labelSystem = new JLabel("NOMBRE DEL SISTEMA");
+                labelSystem = new JLabel("DENTALMASTER");
+                labelSystem.setFont(new Font("Product Sans", Font.PLAIN, 15));
                 labelSystem.setForeground(Color.white);
                 labelSystem.setAlignmentX(Component.CENTER_ALIGNMENT);
                 labelSystem.setBorder(BorderFactory.createEmptyBorder(10, 10, 15, 15));
