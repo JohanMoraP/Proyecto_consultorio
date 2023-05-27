@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import co.edu.uptc.model.Appointment;
@@ -35,7 +34,6 @@ public class App implements ActionListener{
 	private  Home home;
 	private  ControlModel controlModel;
 	private  SchedulePanel schedule;
-	private  AppointmentPanel appointment;
 	private DelateAppoint delate; 
 	
 	private  SearchDoctorPanel searchDoctorPanel;
@@ -57,53 +55,56 @@ public class App implements ActionListener{
 		controlModel.listDoctors=jsonFileManager.getListDoctorsJson();
 		controlModel.generalSchedule.scheduleAppoint=jsonFileManager.getListAppointmentJson();
 	}
+	
+	public void cleanFrame() {
+        frame.getBase().removeAll();
+
+    }
+    public void revalidateFrame() {
+    	frame.revalidate();
+        frame.repaint();
+    }
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		String source = event.getActionCommand();
 		switch (source) {
 		case "citas":
-			frame.getBase().removeAll();
+			cleanFrame();
 			MenuAppointment appointMenu = new MenuAppointment(this);
 			frame.getBase().add(appointMenu);
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 		case "newAppoint":
-			frame.getBase().removeAll();
+			cleanFrame();
 			schedule = new SchedulePanel(this, controlModel.specialityList);
 			frame.getBase().add(schedule);
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 		case "delateAppoint" :
-			frame.getBase().removeAll();
+			cleanFrame();
 			delate = new DelateAppoint(this);
 			frame.getBase().add(delate);
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 		case "buscarIdDelateAppoint":
 			if(controlModel.searchUser(delate.idSearch())!=null){
 				delate.addDataTable(controlModel.searchAppointForUser(delate.idSearch()));
-				frame.revalidate();
-				frame.repaint();
+				revalidateFrame();
 			}
 			else {
 				JOptionPane.showMessageDialog(frame, "PACIENTE NO ENCONTRADO");
-				frame.getBase().removeAll();
+				cleanFrame();
 				searchUserAppoin = new SearchUser(this);
 				frame.getBase().add(searchUserAppoin);
-				frame.revalidate();
-				frame.repaint();
+				revalidateFrame();
 			}  
 			
 			break;
 		case "doctors":
 			schedule.cleanComboDoctors();
 			schedule.addDoctorsDisponibility(controlModel.doctorsSpecialitySearch(schedule.getSpecialitySearch()), this);
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 
 		case "hours":
@@ -111,24 +112,21 @@ public class App implements ActionListener{
 			schedule.addHoursDisponibility(controlModel.listHourDisponibility(schedule.getSendDoctorSelected(), schedule.getDateAppointment()));
 			dataAppointment[1]=(controlModel.searchDoctorObject(schedule.getSendDoctorSelected()));
 			dataAppointment[3]=schedule.getDateAppointment();
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 
 		case "usuario":
-			frame.getBase().removeAll();
+			cleanFrame();
 			menuUserPanel = new MenuUserPanel(this);
 			frame.getBase().add(menuUserPanel);
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 
 		case "doctor":
-			frame.getBase().removeAll();
+			cleanFrame();
 			menuDoctorPanel = new MenuDoctorPanel(this);
 			frame.getBase().add(menuDoctorPanel);
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 
 		case "asignar":
@@ -136,54 +134,47 @@ public class App implements ActionListener{
 			frame.getBase().removeAll();
 			searchUserAppoin = new SearchUser(this);
 			frame.getBase().add(searchUserAppoin);
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 
 		case "createDoctor":
-			frame.getBase().removeAll();
+			cleanFrame();
 			doctor = new DoctorPanel(this ,controlModel.specialityList);
 			frame.getBase().add(doctor);
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 
 		case "searchDoctor":
-			frame.getBase().removeAll();
+			cleanFrame();
 			searchDoctorPanel = new SearchDoctorPanel(this);
 			frame.getBase().add(searchDoctorPanel);
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 
 		case "createUser":
-			frame.getBase().removeAll();
+			cleanFrame();
 			user = new UserPanel(this);
 			frame.getBase().add(user);
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 
 		case "searchUser":
-			frame.getBase().removeAll();
+			cleanFrame();
 			searchUser = new SearchUserPanel(this);
 			frame.getBase().add(searchUser);
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 
 		case "buscarIdUser":
 			if (controlModel.searchUser(searchUser.idSearch()) != null) {
 				searchUser.addData(controlModel.searchUser(searchUser.idSearch()));
-				frame.revalidate();
-				frame.repaint();
+				revalidateFrame();
 			} else {
 				JOptionPane.showMessageDialog(frame, "PACIENTE NO ENCONTRADO");
-				frame.getBase().removeAll();
+				cleanFrame();
 				searchUser = new SearchUserPanel(this);
 				frame.getBase().add(searchUser);
-				frame.revalidate();
-				frame.repaint();
+				revalidateFrame();
 			}
 			break;
 
@@ -191,40 +182,35 @@ public class App implements ActionListener{
 			if(controlModel.searchUser(searchUserAppoin.idSearch())!=null){
 				searchUserAppoin.addData(controlModel.searchUser(searchUserAppoin.idSearch()));
 				dataAppointment[0]=(controlModel.searchUserObject(searchUserAppoin.idSearch()));
-				frame.revalidate();
-				frame.repaint();
+				revalidateFrame();
 			}
 			else {
 				JOptionPane.showMessageDialog(frame, "PACIENTE NO ENCONTRADO");
-				frame.getBase().removeAll();
+				cleanFrame();
 				searchUserAppoin = new SearchUser(this);
 				frame.getBase().add(searchUserAppoin);
-				frame.revalidate();
-				frame.repaint();
+				revalidateFrame();
 			}                   
 			break;
 
 		case "buscarIdDoctor":
 			if (controlModel.searchDoctor(searchDoctorPanel.idSearch()) != null) {
 				searchDoctorPanel.addData(controlModel.searchDoctor(searchDoctorPanel.idSearch()), controlModel.specialityList);
-				frame.revalidate();
-				frame.repaint();
+				revalidateFrame();
 			} else {
 				JOptionPane.showMessageDialog(frame, "MEDICO NO ENCONTRADO");
 				frame.getBase().removeAll();
 				searchDoctorPanel = new SearchDoctorPanel(this);
 				frame.getBase().add(searchDoctorPanel);
-				frame.revalidate();
-				frame.repaint();
+				revalidateFrame();
 			}
 			break;
 
 		case "cancelarUser":
-			frame.getBase().removeAll();
+			cleanFrame();
 			menuUserPanel = new MenuUserPanel(this);
 			frame.getBase().add(menuUserPanel);
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 
 		case "guardarUser":
@@ -237,11 +223,10 @@ public class App implements ActionListener{
 			break;
 
 		case "cancelarDoctor":
-			frame.getBase().removeAll();
+			cleanFrame();
 			menuDoctorPanel = new MenuDoctorPanel(this);
 			frame.getBase().add(menuDoctorPanel);
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 
 		case "guardarDoctor":
@@ -269,19 +254,17 @@ public class App implements ActionListener{
 			controlModel.generalSchedule.scheduleAppoint.add(new Appointment(controlModel.generalSchedule.scheduleAppoint.size(),(Doctor)dataAppointment[1],(Patient)dataAppointment[0], fecha, ""+dataAppointment[2]));
 			jsonFileManager.writeAppointment(controlModel.generalSchedule.getScheduleAppoint());
 			JOptionPane.showMessageDialog(frame, "CITA GUARDADA CON EXITO");
-			frame.getBase().removeAll();
+			cleanFrame();
 			schedule = new SchedulePanel(this, controlModel.specialityList);
 			frame.getBase().add(schedule);
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 
 		case "home":
-			frame.getBase().removeAll();
+			cleanFrame();
 			home = new Home();
 			frame.getBase().add(home);
-			frame.revalidate();
-			frame.repaint();
+			revalidateFrame();
 			break;
 		}
 	}

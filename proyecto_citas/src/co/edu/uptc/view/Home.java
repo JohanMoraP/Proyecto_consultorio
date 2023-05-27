@@ -19,7 +19,6 @@ public class Home extends JPanel {
     public Home() {
 //      setBackground(Color.orange);
         initComponents();
-        setAlignmentX(RIGHT_ALIGNMENT);
     }
 
     private void initComponents() {

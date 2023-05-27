@@ -13,6 +13,7 @@ public class TittlePanel extends JPanel {
     public TittlePanel() {
         setBackground(new Color(41, 99, 99));
         this.setSize(getWidth(), 100);
+		setAlignmentY(CENTER_ALIGNMENT);
         initComponents();
     }
 
