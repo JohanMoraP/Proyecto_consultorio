@@ -23,12 +23,6 @@
   "fecha" : "24/05/2023",
   "hora" : "08:00 A.M"
 }, {
-  "idCita" : 5,
-  "doctor" : "23124",
-  "paciente" : "2423432",
-  "fecha" : "24/05/2023",
-  "hora" : "08:30 A.M"
-}, {
   "idCita" : 6,
   "doctor" : "23124",
   "paciente" : "1035456492",
@@ -41,15 +35,15 @@
   "fecha" : "24/05/2023",
   "hora" : "4:00 P.M"
 }, {
-  "idCita" : 8,
-  "doctor" : "23124",
-  "paciente" : "1035456492",
-  "fecha" : "26/05/2023",
-  "hora" : "10:30 A.M"
+  "idCita" : 9,
+  "doctor" : "324W432423",
+  "paciente" : "32424",
+  "fecha" : "29/05/2023",
+  "hora" : "09:30 A.M"
 }, {
-  "idCita" : 8,
-  "doctor" : "23124",
-  "paciente" : "123456789",
-  "fecha" : "27/05/2023",
-  "hora" : "11:00 A.M"
+  "idCita" : 10,
+  "doctor" : "123",
+  "paciente" : "2423432",
+  "fecha" : "29/05/2023",
+  "hora" : "10:00 A.M"
 } ]

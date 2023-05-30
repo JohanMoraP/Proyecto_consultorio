@@ -26,12 +26,12 @@ import co.edu.uptc.view.schedule.SearchUser;
 
 public class App implements ActionListener{
 	private MyFrame frame;
-	private JsonFileManager jsonFileManager;
+	private static JsonFileManager jsonFileManager;
 	private  DoctorPanel doctor;
 	private  MenuDoctorPanel menuDoctorPanel;
 	private  MenuUserPanel menuUserPanel;
 	private  Home home;
-	private  ControlModel controlModel;
+	private static ControlModel controlModel;
 	private  SchedulePanel schedule;
 	private DelateAppoint delate; 
 	
@@ -250,7 +250,8 @@ public class App implements ActionListener{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			controlModel.generalSchedule.scheduleAppoint.add(new Appointment(controlModel.generalSchedule.scheduleAppoint.size(),(Doctor)dataAppointment[1],(Patient)dataAppointment[0], fecha, ""+dataAppointment[2]));
+			int idApp=controlModel.generalSchedule.scheduleAppoint.size()-1;
+			controlModel.generalSchedule.scheduleAppoint.add(new Appointment((controlModel.generalSchedule.scheduleAppoint.get(idApp).getIdCita()+1),(Doctor)dataAppointment[1],(Patient)dataAppointment[0], fecha, ""+dataAppointment[2]));
 			jsonFileManager.writeAppointment(controlModel.generalSchedule.getScheduleAppoint());
 			JOptionPane.showMessageDialog(frame, "CITA GUARDADA CON EXITO");
 			cleanFrame();
@@ -267,6 +268,17 @@ public class App implements ActionListener{
 			break;
 		}
 	}
+
+    public static void deleteAppointment(Appointment appointment) {
+		for (int i = 0; i < controlModel.generalSchedule.getScheduleAppoint().size(); i++) {
+			if(controlModel.generalSchedule.getScheduleAppoint().get(i).getIdCita()==appointment.getIdCita()){
+				controlModel.generalSchedule.getScheduleAppoint().remove(i);
+				i=controlModel.generalSchedule.getScheduleAppoint().size();
+			}
+		}
+		jsonFileManager.writeAppointment(controlModel.generalSchedule.getScheduleAppoint());
+
+    }
 
 
 }

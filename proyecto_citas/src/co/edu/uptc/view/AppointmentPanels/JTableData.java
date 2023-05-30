@@ -152,8 +152,9 @@ public class JTableData extends JPanel implements MouseListener{
 	private void deleteRow(int rowDelete2) {
 		for (int index = 0; index < listAppointement.size(); index++) {
 			if(index==rowDelete2){
+				DelateAppoint.deleteAppointment(listAppointement.get(index));
 				listAppointement.remove(index);
-				updateTable();
+				updateTable();	
 			}
 		}
 	}
