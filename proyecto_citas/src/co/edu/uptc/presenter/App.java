@@ -268,4 +268,7 @@ public class App implements ActionListener{
 		}
 	}
 
+	public static void appointementDelete(Appointment appointment) {
+	}
+
 }

@@ -10,6 +10,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 
 import co.edu.uptc.model.Appointment;
+import co.edu.uptc.presenter.App;
 import co.edu.uptc.view.SearchBarId;
 import co.edu.uptc.view.TittlePanel;
 
@@ -63,5 +64,10 @@ public class DelateAppoint extends JPanel {
 		return tablePanel.getListAppointement();
     	
     }
+
+    public static void deleteApp(Appointment appointment) {
+        App.appointementDelete(appointment);
+    }
+
 
 }

@@ -19,6 +19,9 @@ import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
+
+import org.junit.internal.builders.JUnit3Builder;
+
 import java.awt.event.ActionEvent;
 
 import co.edu.uptc.model.Appointment;
@@ -31,6 +34,7 @@ public class JTableData extends JPanel implements MouseListener{
 	private JTable jtElements;
 	private JScrollPane jsTable;
 	private ArrayList<Appointment> listAppointement;
+	private int rowDelete;
 	
 	public JTableData() {
 		this.headers = new String[] { "idCita", "Doctor", "Paciente", "Fecha", "Hora"," "};
@@ -56,7 +60,7 @@ public class JTableData extends JPanel implements MouseListener{
 		jtElements.setDefaultEditor(Object.class, null);
 		jtElements.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
 		jsTable = new JScrollPane(jtElements, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		jsTable.addMouseListener(this);
+		jtElements.addMouseListener(this);
 		jsTable.setForeground(Color.RED);
 		jsTable.setBorder(null);
 		jsTable.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -73,6 +77,14 @@ public class JTableData extends JPanel implements MouseListener{
 		this.dtmElements = dtmElements;
 	}
 
+	public int getRowDelete() {
+		return rowDelete;
+	}
+
+	public void setRowDelete(int rowDelete) {
+		this.rowDelete = rowDelete;
+	}
+
 	public void addElementToTable(ArrayList<Appointment> listAppointementUser) {
 	    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 	    for (int i = 0; i < listAppointementUser.size(); i++) {
@@ -84,8 +96,7 @@ public class JTableData extends JPanel implements MouseListener{
 	        column[3] = formato.format(appointment.getDateAppoint());
 	        column[4] = appointment.getHour();
 
-	        JButton cancelButton = new JButton("boton cancelar");
-	        cancelButton.addMouseListener(this);
+	        JButton cancelButton = new JButton("Cancelar Cita");
 	        jtElements.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
 	        column[5] = cancelButton;
 	        listAppointement = listAppointementUser;
@@ -108,7 +119,7 @@ public class JTableData extends JPanel implements MouseListener{
 	        column[3] = formato.format(appointment.getDateAppoint());
 	        column[4] = appointment.getHour();
 
-	        JButton cancelButton = new JButton("boton cancelar");
+	        JButton cancelButton = new JButton("Cancelar cita");
 	        cancelButton.addMouseListener(this);
 	        column[5] = cancelButton;
 
@@ -117,28 +128,36 @@ public class JTableData extends JPanel implements MouseListener{
 	}
 
 
-	
-
 	public void cleanRowsTable() {
 		dtmElements.setRowCount(0);
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-	    int column = jtElements.getColumnModel().getColumnIndex(" ");
-	    int row = jtElements.rowAtPoint(e.getPoint());
-
-	    if (row != -1 && column != -1 && jtElements.getColumnClass(column).equals(JButton.class)) {
-	        JButton cancelButton = (JButton) jtElements.getValueAt(row, column);
-
-	        if (e.getSource() == cancelButton) {
-	            listAppointement.remove(row);
-	            dtmElements.removeRow(row);
-	            updateTable();
-	        }
+	    int row = e.getY()/jtElements.getRowHeight();
+		int col= jtElements.getColumnModel().getColumnIndexAtX(e.getX());
+	    if (row < jtElements.getRowCount() && row >= 0 && col< jtElements.getColumnCount() && col>=0){
+           Object value = jtElements.getValueAt(row, col);
+		   if(value instanceof JButton){
+			((JButton) value).doClick();
+			JButton boton= (JButton)value;
+			this.rowDelete = row;
+			deleteRow(rowDelete);
+		   }
+		   }
 	    }
-	}
+	
 
+
+	private void deleteRow(int rowDelete2) {
+		for (int index = 0; index < listAppointement.size(); index++) {
+			if(index==rowDelete2){
+				listAppointement.remove(index);
+				updateTable();
+				DelateAppoint.deleteApp(listAppointement.get(index));
+			}
+		}
+	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
