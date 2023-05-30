@@ -65,9 +65,6 @@ public class DelateAppoint extends JPanel {
     	
     }
 
-    public static void deleteApp(Appointment appointment) {
-        App.appointementDelete(appointment);
-    }
 
 
 }

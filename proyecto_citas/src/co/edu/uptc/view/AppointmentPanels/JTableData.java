@@ -154,7 +154,6 @@ public class JTableData extends JPanel implements MouseListener{
 			if(index==rowDelete2){
 				listAppointement.remove(index);
 				updateTable();
-				DelateAppoint.deleteApp(listAppointement.get(index));
 			}
 		}
 	}
