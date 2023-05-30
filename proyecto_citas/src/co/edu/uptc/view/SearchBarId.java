@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -26,8 +25,7 @@ public class SearchBarId extends JPanel {
 
         textField = new JTextField(20);
         add(textField);
-        
-       
+
         search = new GreenButton("Buscar");
         search.setActionCommand("buscarId" + namePanel);
         search.addActionListener(listener);
@@ -41,9 +39,5 @@ public class SearchBarId extends JPanel {
     public void setTextField(JTextField textField) {
         this.textField = textField;
     }
-
-
-    
-    
 
 }

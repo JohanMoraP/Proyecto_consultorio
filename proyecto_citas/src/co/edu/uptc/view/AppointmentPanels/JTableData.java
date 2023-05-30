@@ -86,7 +86,6 @@ public class JTableData extends JPanel implements MouseListener{
 
 	        JButton cancelButton = new JButton("boton cancelar");
 	        cancelButton.addMouseListener(this);
-	        
 	        jtElements.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());
 	        column[5] = cancelButton;
 	        listAppointement = listAppointementUser;
